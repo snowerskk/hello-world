@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    window.onload=function()
+    {
+        var adiv=document.getElementsByTagName('div');
+        var i=0;
+        for(i=0;i<adiv.length;i++)
+        {
+            adiv[i].timer=null;
+            adiv[i].onmouseover=function()
+            {
+                startMove(this,300);
+                this.style.background="yellow";
+            }
+            adiv[i].onmouseout=function()
+            {
+                startMove(this,100);
+                this.style.background="red";
+            }
+        }
+    }
+    var timer=null;
+    function startMove(obj,itarget)
+    {
+        clearInterval(obj.timer);
+        obj.timer=setInterval(function(){
+            var ispeed=(itarget-obj.offsetWidth)/8;
+            ispeed=ispeed>0?Math.ceil(ispeed):Math.floor(ispeed);
+            if(obj.offsetWidth==itarget)
+            {
+                clearInterval(obj.timer);
+            }
+            else
+            {
+                obj.style.width=obj.offsetWidth+ispeed+"px";
+            }
+        },30);
+    }
+    
+    </script>
+    <style>
+    div{
+        width:100px;
+        height:100px;
+        background: red;
+        margin:50px auto;
+        overflow: hidden;
+        text-align: center;
+        line-height: 100px;
+    }
+    </style>
+</head>
+<body>
+<div>万维网上的一个超媒体文档</div>
+<div></div>
+<div></div>  
+</body>
+</html>

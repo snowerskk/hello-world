@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>全选取消反选</title>
+	<style>
+	.top{
+		width:150px;
+		margin:20px auto;
+	}
+	.bottom{
+		width:100px;
+		margin:10px auto;
+	}
+	ul{
+		list-style: none;
+		width:90px;
+	}
+	</style>
+	<script src="jquery-3.2.1.min.js"></script>
+	<script>
+		$(function(){
+			//全选
+			$('button:eq(0)').click(function(){
+				$('input').prop("checked",true);
+			})
+			//取消
+			$('button:eq(1)').click(function(){
+				$('input').prop("checked",false);
+			})
+			//反选 
+			$('button:eq(2)').click(function(){
+				$('input').each(function(){
+                    $(this).prop("checked",!$(this).prop("checked"));
+                })
+			})
+		})
+	</script>
+</head>
+<body>
+<div class="top">
+	<button>全选</button>
+	<button>取消</button>
+	<button>反选</button>
+</div>	
+<div class="bottom">
+	<ul>
+		<li>
+			<label for="1">选项1：</label><input type="checkbox" name="" id="1">
+			<label for="2">选项2：</label><input type="checkbox" name="" id="2">
+			<label for="3">选项3：</label><input type="checkbox" name="" id="3">
+			<label for="4">选项4：</label><input type="checkbox" name="" id="4">
+			<label for="5">选项5：</label><input type="checkbox" name="" id="5">
+			<label for="6">选项6：</label><input type="checkbox" name="" id="6">
+			<label for="7">选项7：</label><input type="checkbox" name="" id="7">
+			<label for="8">选项8：</label><input type="checkbox" name="" id="8">
+			<label for="9">选项9：</label><input type="checkbox" name="" id="9">
+		</li>
+	</ul>
+</div>	
+</body>
+</html>

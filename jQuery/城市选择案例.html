@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+  select{
+    width:100px;
+    height:100px;
+    background-color: yellow;
+    float:left;
+  }
+  .btn_box{
+    width:50px;
+    height:100px;
+    text-align: center;
+    float:left;
+  }
+  </style>
+  <script src="jquery-3.2.1.min.js"></script>
+  <script>
+    $(function(){
+        $('#btn_right_all').on('click',function(){
+          $('#left_city option').appendTo('#right_city');
+        });
+        $('#btn_left_all').on('click',function(){
+          $('#right_city option').appendTo('#left_city');
+        });
+        $('#btn_left').on('click',function(){
+          $('#right_city option:selected').appendTo('#left_city');
+        });
+        $('#btn_right').on('click',function(){
+          $('#left_city option:selected').appendTo('#right_city');
+        });
+    });
+  </script>
+</head>
+<body>
+<select name="left_city" id="left_city" multiple>
+  <option value="1">北京</option>
+  <option value="2">上海</option>
+  <option value="3">广州</option>
+  <option value="4">深圳</option>
+</select>
+<div class="btn_box">
+  <button id="btn_right_all">&gt;&gt;</button>
+  <button id="btn_left_all">&lt;&lt;</button>
+  <button id="btn_left">&lt;</button>
+  <button id="btn_right">&gt;</button>
+</div>
+<select name="right_city" id="right_city" multiple></select>
+</body>
+</html>

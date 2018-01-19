@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    
+    </style>
+    <script>
+    window.onload=function(){
+        //数据
+        var data=[
+        {name:'张三',age:19,grade:90},
+        {name:'王五',age:22,grade:76},
+        {name:'李四',age:31,grade:44},
+        {name:'赵六',age:28,grade:20},
+        ];
+        //创建表格
+        function c(tagName){return document.createElement(tagName);}
+        var table=c('table');
+        var thead=c('thead');
+        var tbody=c('tbody');
+        table.appendChild(thead);
+        table.appendChild(tbody);
+        var trHead=c('tr');
+        thead.appendChild(trHead);
+        for(var k in data[0]){
+            var th=c('th');
+            th.appendChild(document.createTextNode(k));
+            trHead.appendChild(th);
+        }
+        for(var i=0;i<data.length;i++){
+            var tr=c('tr');
+            for(var k in data[i]){
+                var td=c('td');
+                td.appendChild(document.createTextNode(data[i][k]));
+                tr.appendChild(td);
+            }
+            tbody.appendChild(tr);
+        }
+        table.border=1;
+        document.body.appendChild(table);
+    }
+    </script>
+</head>
+    <body>
+    
+    </body>
+</html>

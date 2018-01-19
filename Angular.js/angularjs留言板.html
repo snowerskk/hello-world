@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>留言板</title>
+	<script src="../../angular.js"></script>
+	<style>
+	.box{
+		width:800px;
+		height: 500px;
+		border:1px solid black;
+		margin:0 auto;
+		text-align: center;
+		background: snow;
+	}
+	textarea{
+		resize:none;
+	}
+	</style>
+</head>
+<body>
+<div class="box">
+	<div ng-app="myNoteApp" ng-controller="myNoteCtrl">
+	<h2>我的留言板</h2>
+	<p><textarea ng-model="message" cols="40" rows="10"></textarea></p>
+	<p>
+		<button ng-click="save()">保存</button>
+		<button ng-click="clear()">清除</button>
+	</p>
+	<p>剩余字数: <span ng-bind="remain()"></span></p>
+</div>
+
+
+<script>
+	angular.module('myNoteApp',[])
+	.controller('myNoteCtrl',function($scope){
+		$scope.message = "";
+    	$scope.remain  = function() {return 140 - $scope.message.length;};
+    	$scope.clear = function() {$scope.message = "";};
+    	$scope.save  = function() {alert("保存成功");};
+	})
+</script>
+</div>	
+</body>
+</html>

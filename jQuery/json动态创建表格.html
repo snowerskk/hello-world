@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>json动态创建表格</title>
+  <style>
+  table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    border:1px solid #e7e7e7;
+  }
+  th,td{
+    border:1px solid #e7e7e7;
+    color:#404060;
+    padding:10px;
+  }
+  th{
+    background-color: #09c;
+    font:bold 16px 微软雅黑;
+    color:#fff;
+  }
+  td{
+    text-align: center;
+    font:14px 微软雅黑;
+  }
+  </style>
+  <script src="jquery-3.2.1.min.js"></script>
+  <script>
+    $(function(){
+      data=[{
+        name:"张三",
+        score:"55",
+        grade:"不及格"
+      },{
+        name:"李四",
+        score:"63",
+        grade:"及格"
+      },{
+        name:"王五",
+        score:"92",
+        grade:"优秀"
+      }];
+      var strHTML="";
+      for(var i=0;i<data.length;i++){
+        strHTML+="<tr>";
+        strHTML+= "<td>"+data[i].name+"</td>";
+        strHTML+= "<td>"+data[i].score+"</td>";
+        strHTML+= "<td>"+data[i].grade+"</td>";
+        strHTML+="</tr>";
+      };
+      $('#j_tb').html(strHTML);
+    });
+  </script>
+</head>
+<body>
+<table>
+  <thead>
+    <tr>
+      <th>姓名</th>
+      <th>分数</th>
+      <th>成绩</th>
+    </tr>
+  </thead>
+  <tbody id="j_tb"></tbody>
+</table>
+</body>
+</html>

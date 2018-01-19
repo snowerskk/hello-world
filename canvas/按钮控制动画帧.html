@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试</title>
+    <style>
+    canvas{
+        border:1px solid black;
+    }
+    </style>
+    <!-- <script src="jquery-3.2.1.min.js"></script> -->
+    <script>
+    window.onload=function(){
+        var canvas=document.getElementById('demo');
+        var ctx=canvas.getContext("2d");
+        canvas.style.background="#e9e9e9";
+        function $(tagName){return document.getElementById(tagName)}
+        $('btn1').onclick=function(){
+            show(44,240,32,70,9);
+        }
+        $('btn2').onclick=function(){
+            show(43,300,32,70,9);
+        }
+        canvas.width="800";
+        canvas.height="600";
+        //定义图片
+        var img=new Image();
+        img.src="https://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1513929727&di=970e4d1df0264e87c959674f17442c15&src=http://www.ithov.com/uploads/allimg/130102/210411C42-1.jpg";
+        var timer;
+        function show(x1,y1,w,h,a){
+            var index=0;
+            clearInterval(timer);
+            timer=setInterval(function(){
+                //清掉之前的图片
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(img, x1*index,y1,w,h,280,200,w,h);
+                index++;
+                index%=a;
+            }, 100)
+        }
+    }
+    </script>
+</head>
+<body>
+<canvas id="demo">
+</canvas>
+<input type="button" value="左" id="btn1">
+<input type="button" value="右" id="btn2">
+</body>
+</html>

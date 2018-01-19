@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试</title>
+    <style>
+    canvas{
+        border:1px solid black;
+    }
+    </style>
+    <!-- <script src="jquery-3.2.1.min.js"></script> -->
+    <script>
+    window.onload=function(){
+        var canvas=document.getElementById('demo');
+        var ctx=canvas.getContext("2d");
+        canvas.width="800";
+        canvas.height="600";
+        //定义图片
+        var img=new Image();
+        img.src="https://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1513928916&di=d4d3aa6b95ec59a21464fe2e0724e2fb&src=http://images.cnitblog.com/blog/379353/201304/03095120-f494d4db8fca41b2817354729f6511bf.png";
+        img.onload=function(){
+            var index=0;
+            //定时绘图
+            setInterval(function(){
+                //清掉之前的图片
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(img, 140*index,0,140,140,280,200,140,140);
+                index++;
+                index%=8;
+            }, 100)
+        }
+    }
+    </script>
+</head>
+<body>
+<canvas id="demo">
+</canvas>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>红米</title>
+	<style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	#box{
+		width:512px;
+		height:400px;
+		background: black;
+		overflow: hidden;
+		margin:120px auto;
+		position: relative;
+		box-shadow: 0px 5px 10px #000;
+	}
+	#box span{
+		width:100%;
+		height:200px;
+		position:absolute;
+		left:0;
+		cursor:pointer;
+	}
+	#box .up{
+		top:0;
+	}
+	#box .down{
+		bottom:0;
+	}
+	#box #pic{
+		position:absolute;
+		left:0;
+		top:0;
+	}
+	</style>
+	<script>
+		window.onload=function(){
+			function $(id){return document.getElementById(id);}
+			var num=0;
+			var timer=null;
+			$('j_up').onmouseover=function(){
+				move(-3);
+			}
+			$('j_down').onmouseover=function(){
+				move(2);
+			}
+			$('box').onmouseleave=function(){
+				clearInterval(timer);
+			}
+			function move(speed){
+				clearInterval(timer);
+				timer=setInterval(go,30);
+				function go(){
+					if(speed<0){
+						if(num>-1070){
+							num+=speed;
+							$('pic').style.top=num+"px";
+						}else{
+							clearInterval(timer);
+						}
+					}else{
+						if(num<0){
+							num+=speed;
+							$('pic').style.top=num+"px";
+						}else{
+							clearInterval(timer);
+						}
+					}	
+				}
+			}
+		}
+
+	</script>
+</head>
+<body>
+<div id="box">
+	<img src="mi.png" alt="" id="pic">
+	<span class="up" id="j_up"></span>
+	<span class="down" id="j_down"></span>
+</div>
+</body>
+</html>

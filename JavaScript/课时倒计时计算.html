@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>课时计</title>
+	 <script>
+    window.onload=function(){
+    	//原始数据
+        var arr1=[50.21,11.08,16.57,6.52,9.33,11.57,16.18,22.52,9.05,8.38,12.57,8.31,10.52,11.48,20.43,15.18,5.04,10.56,18.59,17.28,3.21];
+        var div=document.getElementById('div');
+        var btn=document.getElementById('btn');
+        time(arr1);
+        //按钮点击事件
+        btn.onclick=function(){
+        	var message=confirm("确认结束了吗？");
+        	if(message==true){
+        		arr1.shift();
+        		time(arr1);
+        	}
+        }
+        //长度转换成时间
+        function time(arr){
+            var minute=0,second=0,h=0;
+            for(var i=0,len=arr.length;i<len;i++){
+                minute+=Number(arr[i].toString().slice(0,arr[i].toString().indexOf('.')));
+                second+=Number(arr[i].toString().slice(arr[i].toString().indexOf('.')+1));
+            }
+            s=second%60;
+            m=minute%60+parseInt(second/60);
+            if(m>=60){
+            	h=parseInt(minute/60)+parseInt(m/60);
+            	m=m%60;
+            }else{
+            	h=parseInt(minute/60);
+            }
+            div.innerHTML="当节课还有"+arr1.length+"段视频。时长还剩余："+h+"小时"+m+"分钟"+s+"秒!<br/>加油！！！";
+        }    
+    }
+    </script>
+</head>
+<body>
+<div id="div"></div>
+<input type="button" value="结束一课" id="btn">	
+</body>
+</html>

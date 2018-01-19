@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>焦点图</title>
+	<style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	.pg{
+		width:800px;
+		height:580px;
+		border:1px solid black;
+		margin:5px auto;
+		padding:20px;
+	}
+	.pg .box ul{
+		width:600%;
+		list-style: none;
+		position: absolute;
+		left:0;
+		top:0;
+	}
+	.pg .box ul li{
+		float:left;
+	}
+	.box{
+		width:100%;
+		height:100%;
+		background: #eee;
+		position: relative;
+		overflow: hidden;
+	}
+	.pg .box img{
+		width:800px;
+		height:580px;
+		vertical-align: top;
+	}
+	.dot{
+		width:100px;
+		position:absolute;
+		left:50%;
+		margin-left: -75px;
+		bottom:60px;
+
+	}
+	.dot ul li{
+		width:20px;
+		height:20px;
+		line-height: 18px;
+		text-align: center;
+		cursor:pointer;
+		color:white;
+		border:1px solid white;
+		margin-right: 10px;
+		box-sizing: border-box;
+	}
+	.current{
+		border:2px solid gold !important;
+		color:gold !important;
+		font-weight: 700;
+	}
+	</style>
+	<script>
+		//这个焦点图的定时器打开页面时就打开了
+		//通过target赋值变动
+		window.onload=function(){
+			var ul1=document.getElementsByTagName('ul')[0];
+			var ul2=document.getElementsByTagName('ul')[1];
+			var ali2=ul2.getElementsByTagName('li');
+			var ali1=ul1.getElementsByTagName('li');
+			//给每个li绑上事件
+			for(var i=0,len=ali2.length;i<len;i++){
+				//获取索引
+				ali2[i].index=i;
+				ali2[i].onmouseover=function(){
+					for(var j=0,len=ali2.length;j<len;j++){
+						ali2[j].className="";
+					}
+					this.className="current";
+					//给目标赋值
+					target=-this.index*800;	
+				}
+			}
+			var speed=0,target=0;
+			//定时器初始化就打开，初始目标位置是0
+			setInterval(function(){
+				speed+=(target-speed)/8;
+				ul1.style.left=speed+"px";
+			},80);
+		}
+	</script>
+</head>
+<body>
+<div class="pg">
+	<div class="box">
+		<ul id="j_img">
+			<li><a href="#"><img src="http://attachments.gfan.com/forum/attachments2/201302/03/11281446n2st1its4152n5.jpg" alt="抱歉图片弄丢了"></a></li>
+			<li><a href="#"><img src="http://img2.niutuku.com/desk/1207/1057/ntk133889.jpg" alt="抱歉图片弄丢了"></a></li>
+			<li><a href="#"><img src="http://g.hiphotos.baidu.com/zhidao/pic/item/cefc1e178a82b901dcdb9a84728da9773912ef17.jpg" alt="抱歉图片弄丢了"></a></li>
+			<li><a href="#"><img src="http://img2.niutuku.com/desk/1208/1611/ntk-1611-50389.jpg" alt="抱歉图片弄丢了"></a></li>
+			<li><a href="#"><img src="http://img4.imgtn.bdimg.com/it/u=2865731094,3400192128&fm=214&gp=0.jpg" alt="抱歉图片弄丢了"></a></li>
+		</ul>
+		<div class="dot">
+			<ul id="j_dot">
+				<li class="current">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ul>
+		</div>
+	</div>
+</div>	
+</body>
+</html>

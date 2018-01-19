@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <title>canvas进度条</title>
+    <style>
+    body{
+        margin:0;
+        padding:0;
+        background: #f0f0f0;
+        overflow: hidden;
+    }
+    </style>
+    <!-- <script src="jquery-3.2.1.min.js"></script> -->
+    <script src="konva.js"></script>
+    <script>
+    window.onload=function(){
+        //创建舞台
+        var stage=new Konva.Stage({
+            container:'contain',
+            width:window.innerWidth,
+            height:window.innerHeight
+        });
+        //创建层
+        var layer=new Konva.Layer();
+        // 把层添加到舞台
+        stage.add(layer);
+        //中心点坐标
+        var cenX=stage.width()/2;
+        var cenY=stage.height()/2;
+        //内部填充形状
+        var innerRect=new Konva.Rect({
+            x:1/8*stage.width(),
+            y:1/2*stage.height(),
+            width:3/4*stage.width(),
+            height:1/12*stage.height(),
+            cornerRadius:1/24*stage.height(),
+            fill:"gold"
+        });
+        layer.add(innerRect);
+        //外部框
+        var outerRect=new Konva.Rect({
+            x:1/8*stage.width(),
+            y:1/2*stage.height(),
+            width:3/4*stage.width(),
+            height:1/12*stage.height(),
+            cornerRadius:1/24*stage.height(),
+            stroke:"lightblue",
+        });
+        layer.add(outerRect);
+        layer.draw();
+    }
+    
+
+    </script>
+</head>
+<body>
+<!-- 舞台容器 -->
+<div id="contain"></div>
+</body>
+</html>

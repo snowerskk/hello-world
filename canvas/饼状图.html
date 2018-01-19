@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>饼状图</title>
+	<style>
+	body{
+		margin:0;
+		padding:0;
+		overflow: hidden;
+	}
+	</style>
+	<script src="konva.js"></script>
+	<script>
+		window.onload=function(){
+			//创建舞台
+			var stage=new Konva.Stage({
+				container:'container',
+				width:window.innerWidth,
+				height:window.innerHeight
+			});
+			//创建层
+			var layer=new Konva.Layer();
+			stage.add(layer);
+			//中心点坐标
+			var cenX=stage.width()/2;
+			var cenY=stage.height()/2;
+
+			var data=[
+				{name:'前端',value:.25,color:'gold'},
+				{name:'php',value:.2,color:'orange'},
+				{name:'UI',value:.3,color:'blue'},
+				{name:'C++',value:.05,color:'green'},
+				{name:'游戏',value:.1,color:'purple'},
+				{name:'Java',value:.1,color:'red'},
+			];
+			var tempAngle=-90;
+			data.forEach(function(item,index){
+				var angle=360*item.value;
+				var wedge=new Konva.Wedge({
+					x:cenX,
+					y:cenY,
+					angle:angle,
+					radius:100,
+					fill:item.color,
+					rotation:tempAngle
+				});
+				layer.add(wedge);
+
+				var text=new Konva.Text({
+					x:cenX+(100+15)*Math.cos(Math.PI/180*(tempAngle+1/2*angle)),
+					y:cenY+(100+15)*Math.sin(Math.PI/180*(tempAngle+1/2*angle)),
+					text:item.value*100+'%',
+					fill:item.color
+				});
+				//调整文字的位置
+				if((tempAngle+1/2*angle)>90 && (tempAngle+1/2*angle)<270){
+					text.x(text.x()-text.getWidth());
+				}
+				layer.add(text);
+				tempAngle+=angle;
+			})
+			var circle=new Konva.Circle({
+				x:cenX,
+				y:cenY,
+				radius:106,
+				stroke:'#ccc'
+			})
+			layer.add(circle);
+			layer.draw();
+
+			
+			var wedges=layer.find('Wedge');
+			for(var i=0;i<data.length;i++){
+				wedges[i].angle(0);
+			}
+			var n=0;
+			function animatePie(){
+				wedges[n].to({
+					angle:data[n].value*360,
+					duration:data[n].value*10,
+					onFinish:function(){
+						n++;
+						if(n>=data.length){
+							return;
+						}
+						animatePie();
+					}	
+				});	
+			}
+			animatePie();
+
+
+
+
+		}
+	</script>
+</head>
+<body>
+	<div id="container">
+	</div>
+</body>
+</html>

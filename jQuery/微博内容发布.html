@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	.wrap{
+		width:360px;
+		padding:20px;
+		font-family:微软雅黑;
+		font-size: 14px;
+		border:1px solid black;
+		margin:50px auto;
+	}
+	.conte{
+		width:360px;
+		height:20px;
+		text-indent: 60px;
+		background: snow;
+		overflow: hidden;
+		border-bottom: 1px dotted black;
+	}
+	.conte a{
+		text-decoration: none;
+		font-size: 12px;
+		font-family: 黑体;
+		color:black;
+		float: right;
+	}
+	textarea{
+		vertical-align: bottom;
+		resize: none;
+	}
+	</style>
+	<script src="jquery-3.2.1.min.js"></script>
+	<script>
+		$(function(){
+			//发布按钮
+			$('#btn').click(function(){
+				if($('#txt').val()==""){
+					alert("请输入您要发表的内容");
+				}else{
+					//创建节点
+					var bili=$('<p class="conte"></p>');
+					bili.html(""+$('#txt').val()+"<a href='javascript:;'>删除</a>");
+					$('#box').append(bili);
+					$('#txt').val("");
+					//删除按钮
+					$('a').click(function(){
+						$(this).parent().remove();
+					})
+				}
+			})
+		})
+	</script>
+</head>
+<body>
+	<div class="wrap" id="box">
+		<span>微博发布</span>
+		<textarea name="" id="txt" cols="30" rows="10"></textarea>
+		<button id="btn">发布</button>
+	</div>
+</body>
+</html>

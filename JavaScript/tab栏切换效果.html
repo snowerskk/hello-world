@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>测试用</title>
+	<style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	.plpl{
+		background-color: blue;
+		color:white;
+
+	}
+	ul{
+		width:250px;
+		list-style: none;
+		background-color: snow;
+	}
+	li{
+		width:250px;
+		height:300px;
+		line-height: 300px;
+		text-align: center;
+		font-size:200px;
+		color:white;
+		background-color: blue;
+		display: none;
+	}
+	button{
+		font-weight: bold;
+		border-width:0px;
+		border-radius: 5px;
+	}
+	</style>
+	<script>
+		window.onload=function(){
+			var abtn=document.getElementsByTagName('button');
+			var ali=document.getElementsByTagName('li');
+			abtn[0].className="plpl";
+			ali[0].style.display="block";
+			for(var i=0,len=abtn.length;i<len;i++){
+				abtn[i].index=i;
+				abtn[i].onclick=function(){
+					for(var i=0,len=abtn.length;i<len;i++){
+						abtn[i].className="";
+						ali[i].style.display="none";
+					}
+					this.className="plpl";
+					ali[this.index].style.display="block";
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+<button>按钮1</button>
+<button>按钮2</button>
+<button>按钮3</button>
+<button>按钮4</button>
+<button>按钮5</button>
+<button>按钮6</button>
+<ul>
+	<li>一</li>
+	<li>二</li>
+	<li>三</li>
+	<li>四</li>
+	<li>五</li>
+	<li>六</li>
+</ul>
+</body>
+</html>

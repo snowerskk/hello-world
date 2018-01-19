@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>方向键移动</title>
+    <script>
+    window.onload=function()
+    {
+        document.onkeydown=function(ev)
+        {
+            var odiv=document.getElementById('div1');
+            var direction={left:false,top:false,right:false,bottom:false};
+            setInterval(function()
+                {
+                    if(direction.left)
+                    {
+                        odiv.style.left=odiv.offsetLeft-10+"px";
+                        odiv.style.background="url('images/tank-l.png')";
+                    }
+                    else if(direction.right)
+                    {
+                        odiv.style.left=odiv.offsetLeft+10+"px";
+                        odiv.style.background="url('images/tank-r.png')";
+                    }
+                    else if(direction.top)
+                    {
+                        odiv.style.top=odiv.offsetTop-10+"px";
+                        odiv.style.background="url('images/tank-t.png')";
+                    }
+                    else if(direction.bottom)
+                    {
+                        odiv.style.top=odiv.offsetTop+10+"px";
+                        odiv.style.background="url('images/tank-b.png')";
+                    }
+                },50);
+            document.onkeydown=function(ev)
+            {
+                switch(ev.keyCode)
+                {
+                    case 37:
+                    direction.left=true;
+                    break;
+                    case 38:
+                    direction.top=true;
+                    break;
+                    case 39:
+                    direction.right=true;
+                    break;
+                    case 40:
+                    direction.bottom=true;
+                    break;
+                }
+            }
+            document.onkeyup=function()
+            {
+                direction={left:false,top:false,right:false,bottom:false};
+            }
+        }
+    }
+    </script>
+    <style>
+    #div1{
+        width:100px;
+        height:100px;
+        background: url('images/tank-t.png');
+        position:absolute;
+    }
+    .bg{
+        width:800px;
+        height:480px;
+        margin:0 auto;
+        border:10px solid black;
+        background: url('images/tank-bg.jpg');
+    }
+    </style>
+</head>
+
+<body>
+<div class="bg">
+    <div id="div1"></div>
+</div>
+</body>
+</html>

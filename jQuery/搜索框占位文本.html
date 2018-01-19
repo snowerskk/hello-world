@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>搜索框占位符</title>
+	<!-- h5可以直接用placeholder -->
+	<style>
+	#search{
+		width:280px;
+		height: 20px;
+		margin:100px auto;
+		position: relative;
+	}
+	
+	label{
+		color:#ccc;
+		font-size: 12px;
+		cursor:text;
+		position: absolute;
+		left:10px;
+		top:4px;
+	}
+	</style>
+	<script src="jquery-3.2.1.min.js"></script>
+	<script>
+		//本例用label标签写的
+		$(function(){
+			//IE6,7,8 兼容用onpropertychange事件
+			$('#txt').on("input propertychange",function(){
+				if($(this).val()==""){
+					$('#lab').show();
+				}else{
+					$('#lab').hide();
+				}
+			})
+		})
+	</script>
+</head>
+<body>
+<div id="search">
+	<input type="text" name="" id="txt">
+	<label for="txt" id="lab">必败的国际大牌</label>
+</div>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>面向对象柱状图</title>
+	<style>
+	body{
+		margin:0;
+		padding:0;
+		overflow: hidden;
+	}
+	</style>
+	<script src="konva.js"></script>
+	<script>
+		window.onload=function(){
+			function Histogram(option){
+				this._init(option);
+			}
+			Histogram.prototype={
+				_init:function(option){
+					this.x=option.x || 0;
+					this.y=option.y || 0;
+					this.w=option.w || 0;
+					this.h=option.h || 0;
+					this.data=option.data || [];
+					//建个大组
+					this.group=new Konva.Group({
+						x:this.x,
+						y:this.y
+					});
+					//建个矩形组
+					this.rectGroup=new Konva.Group({
+						x:0,
+						y:0
+					});
+					this.group.add(this.rectGroup);
+					//建个头部文字组
+					this.textTopGroup=new Konva.Group({
+						x:0,
+						y:0
+					});
+					this.group.add(this.textTopGroup);
+					
+					//横坐标
+					var x0=0,y0=0;
+					var abscissa=new Konva.Line({
+						points:[x0,y0,x0+this.w,y0],
+						stroke:'black'
+					});
+					this.group.add(abscissa);
+
+					var rectWidth=this.w/this.data.length;
+					var self=this;
+					var height=this.h;
+					this.data.forEach(function(item,index){
+						var rect=new Konva.Rect({
+							x:(1/4+index)*rectWidth+x0,
+							y:y0-item.value*height,
+							width:1/2*rectWidth,
+							height:item.value*height,
+							fill:item.color
+
+						});
+						self.rectGroup.add(rect);
+						//顶部百分比
+						var textTop=new Konva.Text({
+							x:index*rectWidth+x0,
+							y:y0-item.value*height-14,
+							fontSize:14,
+							text:item.value*100+'%',
+							fill:item.color,
+							width:rectWidth,
+							align:'center',
+							name:'textTop'
+						});
+						self.textTopGroup.add(textTop);
+						//下部文字
+						var textBottom=new Konva.Text({
+							x:(1/4+index)*rectWidth+x0,
+							y:y0,
+							fontSize:14,
+							text:item.name,
+							fill:item.color,
+							width:1/2*rectWidth,
+							align:'center',
+							rotation:30
+						});
+						self.group.add(textBottom);
+					})
+
+					layer.draw();
+					//动画效果
+					//矩形部分
+					layer.find('Rect').each(function(item,index){
+						item.y(y0);
+						item.height(0);
+						item.to({
+							duration:1.5,
+							y:y0-data[index].value*height,
+							height:data[index].value*height
+						})
+					})
+					//百分比文字部分
+					layer.find('.textTop').each(function(item,index){
+						item.y(y0-14);
+						item.to({
+							duration:1.5,
+							y:y0-data[index].value*height-14,
+						})
+					})
+				},
+				addToGroupOrLayer:function(arg){
+					arg.add(this.group);
+				},
+				playAnimate:function(){
+					//动画效果
+					//矩形部分
+					var self=this;
+					var y0=0;
+					this.rectGroup.getChildren().each(function(item,index){
+						item.y(y0);
+						item.height(0);
+						item.to({
+							duration:1.5,
+							y:y0-self.data[index].value*self.h,
+							height:self.data[index].value*self.h
+						})
+					})
+					//百分比文字部分
+					this.textTopGroup.getChildren().each(function(item,index){
+						item.y(y0-14);
+						item.to({
+							duration:1.5,
+							y:y0-self.data[index].value*self.h-14,
+						})
+					})
+				}
+			}
+			//创建舞台
+			var stage=new Konva.Stage({
+				container:'container',
+				width:window.innerWidth,
+				height:window.innerHeight
+			});
+			//创建并添加层
+			var layer=new Konva.Layer();
+			stage.add(layer);
+
+			var data=[
+			{name:'前端',value:'.8',color:'green'},
+			{name:'PHP',value:'.3',color:'blue'},
+			{name:'Java',value:'.7',color:'red'},
+			{name:'UI',value:'.9',color:'orange'},
+			{name:'IOS',value:'.4',color:'purple'},
+			{name:'Android',value:'.9',color:'pink'}
+			]
+
+			var histogram=new Histogram({
+				x:1/8*stage.width(),
+				y:3/4*stage.height(),
+				w:3/4*stage.width(),
+				h:1/2*stage.height(),
+				data:data
+			});
+			histogram.addToGroupOrLayer(layer);
+			layer.draw();
+			histogram.playAnimate();
+		}
+	</script>
+</head>
+<body>
+<div id="container"></div>	
+</body>
+</html>

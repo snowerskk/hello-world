@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>短信验证读秒</title>
+	<script>
+		window.onload=function(){
+			var btn=document.getElementById('btn');
+			btn.style.fontWeight="700";
+			var sec=6;
+			var timer=null;
+			btn.onclick=function(){
+				this.disabled=true;
+				btn.style.fontWeight="normal";
+				timer=setInterval(time,1000);
+			}
+			function time(){
+				if(sec>0){
+					sec--;
+					btn.innerHTML="剩余时间"+sec+"秒";
+				}else{
+					btn.innerHTML="重新发送";
+					btn.disabled=false;
+					btn.style.fontWeight="700";
+					clearInterval(timer);
+					sec=6;
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+<input type="text" name="" id="txt">	
+<button id="btn">发送短信验证</button>	
+</body>
+</html>

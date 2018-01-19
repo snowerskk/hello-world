@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>短信验证读秒</title>
+	<script src="jquery-3.2.1.min.js"></script>
+	<script>
+		$(function(){
+			var btn=$('#btn');
+			btn.css("font-weight",700);
+			var sec=6;
+			var timer=null;
+			btn.click(function(){
+				$(this).attr("disabled",true);
+				$(this).css({"font-weight":"normal"});
+				timer=setInterval(time,1000);
+			})
+			function time(){
+				if(sec>0){
+					sec--;
+					btn.html("剩余时间"+sec+"秒");
+				}else{
+					btn.html("重新发送");
+					btn.attr("disabled",false);
+					btn.css({"font-weight":700});
+					clearInterval(timer);
+					sec=6;
+				}
+			}
+		})
+	</script>
+</head>
+<body>
+<input type="text" name="" id="txt">	
+<button id="btn">发送短信验证</button>	
+</body>
+</html>

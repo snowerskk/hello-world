@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	.wrap{
+		width:360px;
+		padding:20px;
+		font-family:微软雅黑;
+		font-size: 14px;
+		border:1px solid black;
+		margin:50px auto;
+	}
+	.conte{
+		width:360px;
+		height:20px;
+		text-indent: 60px;
+		background: snow;
+		overflow: hidden;
+		border-bottom: 1px dotted black;
+	}
+	.conte a{
+		text-decoration: none;
+		font-size: 12px;
+		font-family: 黑体;
+		color:black;
+		float: right;
+	}
+	textarea{
+		vertical-align: bottom;
+		resize: none;
+	}
+	</style>
+	<script>
+		window.onload=function(){
+			//获取元素
+			var txt=document.getElementById('txt');
+			var btn=document.getElementById('btn');
+			var box=document.getElementById('box');
+			var aa=document.getElementsByTagName('a');
+			var len=box.children;
+			//按钮绑定点击事件
+			btn.onclick=function(){
+				if(txt.value==""){
+					alert("请输入您要发表的内容");
+				}else{
+					var bili=document.createElement('p');
+					bili.setAttribute("class","conte");
+					bili.innerHTML=txt.value+"<a href='javascript:;'>删除</a>";
+					if(len.length == 3){
+						box.appendChild(bili);
+					}else{
+						box.insertBefore(bili,len[3]);
+					}
+					txt.value="";
+					for(var i=0;i<aa.length;i++){
+						aa[i].onclick=function(){
+						box.removeChild(this.parentNode);
+						}
+					}
+				}	
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<div class="wrap" id="box">
+		<span>微博发布</span>
+		<textarea name="" id="txt" cols="30" rows="10"></textarea>
+		<button id="btn">发布</button>
+	</div>
+</body>
+</html>

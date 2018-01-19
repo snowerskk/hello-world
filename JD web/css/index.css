@@ -1,0 +1,271 @@
+/* 首页样式 */
+/* 中间分类部分 */
+.grid-aside{
+	height:480px;
+	background: url(../images/banner-aside.png) no-repeat 50% 0;
+}
+.grid{
+	height: 480px;
+}
+.grid-col1{
+	width: 190px;
+	height: 100%;
+	background-color: #6e6568;
+	box-sizing: border-box;
+	padding-top: 16px;
+	font-size: 12px;
+}
+.grid-col1 ul li{
+	height:28px;
+	line-height: 28px;
+	padding-left: 8px;
+	color:#fff;
+}
+.grid-col1 ul li:hover{
+	background: #9c9698;
+}
+.grid-col1 ul li a{
+	font-size: 14px;
+	color:#fff;
+	margin:0 4px;
+}
+.grid-col1 ul li a:hover{
+	color:#c81623;
+}
+.grid-col2{
+	width: 790px;
+	height: 100%;
+	margin-left:10px;
+}
+.grid-col2-t{
+	position: relative;
+}
+.arrow-l,.arrow-r{
+	position:absolute;
+	top:50%;
+	transform: translateY(-50%);
+	width: 30px;
+	line-height: 60px;
+	background-color: rgba(0,0,0,0.3);
+	font-family: "icomoon";
+	text-align: center;
+}
+.arrow-l:hover,.arrow-r:hover{
+	background-color: rgba(0,0,0,0.8);
+}
+.arrow-l i,.arrow-r i{
+	font-size: 16px;
+	font-style: normal;
+	color:#fff;
+}
+.arrow-r{
+	right:0px;
+}
+.grid-col2-t ul{
+	width: 182px;
+	height: 20px;
+	padding-top: 4px;
+	padding-left: 3px;
+	box-sizing: border-box;
+	background-color: rgba(255,255,255,0.4);
+	position: absolute;
+	left:50%;
+	bottom:20px;
+	transform: translateX(-50%);
+	border-radius: 20px;
+}
+.grid-col2-t ul li{
+	width: 12px;
+	height: 12px;
+	background-color: #fff;
+	float:left;
+	border-radius: 50%;
+	margin:0 5px;
+	cursor: pointer;
+}
+.grid-col2-t ul li:first-child{
+	background-color: #db192a;
+}
+
+.grid-col2-b div{
+	margin-top: 10px;
+}
+.grid-col3{
+	width: 190px;
+	height: 100%;
+	background-color: #fff;
+}
+.login{
+	height: 115px;
+	box-sizing: border-box;
+	padding-left:15px;
+	padding-top: 17px;
+	border-bottom: 1px solid #e6e6e6;
+}
+.login-t{
+	width: 95px;
+	height:55px;
+	line-height: 22px;
+	font-size:12px;
+	color:#666;
+	padding-left: 55px;
+	position: relative;
+}
+.login-t a{
+	color:#666;
+}
+.login-t a:hover{
+	color:#c81623;
+}
+.login-t img{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	position: absolute;
+	left:5px;
+	top:2px;
+}
+.login-b a{
+	display: inline-block;
+	width: 70px;
+	line-height: 20px;
+	border: 2px solid #e01222;
+	color: #e01222;
+	text-align: center;
+	margin-right: 5px;
+	margin-top: 2px;
+}
+.login-b a:hover{
+	color:#fff;
+	background-color: #e01222;
+}
+.news{
+	height: 154px;
+	padding:7px 13px 0;
+	box-sizing: border-box;
+	border-bottom: 1px solid #e6e6e6;
+}
+.news-t{
+	width: 162px;
+	height: 19px;
+	line-height: 16px;
+	border-bottom: 1px solid #e6e6e6;
+	font-size: 15px;
+	color: #e6e6e6;
+	position: relative;
+}
+.news-t span{
+	margin:-2px 14px 0px 10px;
+}
+.news-t a{
+	color: #666;
+}
+.more:hover{
+	color:#c81623;
+}
+.news-t div{
+	width: 28px;
+	height:2px;
+	background-color: #e01222;
+	position: absolute;
+	left:0px;
+	bottom:0px;
+}
+.news-b{
+	margin-top: 10px;
+}
+.news-b li{
+	line-height: 22px;
+}
+.news-b a{
+	color:#666;
+}
+.news-b a:hover{
+	color:#c81623;
+}
+.expend{
+	height: 209px;
+	overflow: hidden;
+}
+.expend ul{
+	width: 192px;
+}
+.expend li{
+	width: 47px;
+	height: 69px;
+	border-right: 1px solid #e7e7e7;
+	border-bottom: 1px solid #e7e7e7;
+	float:left;
+	text-align: center;
+}
+.expend li a{
+	display: block;
+	padding-top: 15px;
+}
+.expend li i{
+	display: block;
+	margin:0px auto 8px;
+	background: url(../images/expend.png) no-repeat;
+}
+.expend li:first-child i{
+	width: 17px;
+	height: 22px;
+	background-position: -4px -90px;
+}
+.expend li:nth-child(2) i{
+	width: 22px;
+	height: 22px;
+	background-position: 0px -45px;
+}
+.expend li:nth-child(3) i{
+	width: 20px;
+	height: 22px;
+	background-position: -45px -88px;
+}
+.expend li:nth-child(4) i{
+	width: 26px;
+	height: 22px;
+	background-position: -86px 0px;
+}
+.expend li:nth-child(5) i{
+	width: 24px;
+	height: 22px;
+	background-position: -87px -45px;
+}
+.expend li:nth-child(6) i{
+	width: 20px;
+	height: 22px;
+	background-position: -1px -1px;
+}
+.expend li:nth-child(7) i{
+	width: 24px;
+	height: 22px;
+	background-position: -44px -45px;
+}
+.expend li:nth-child(8) i{
+	width: 17px;
+	height: 22px;
+	background-position: -92px -89px;
+}
+.expend li:nth-child(9) i{
+	width: 20px;
+	height: 22px;
+	background-position: -133px 0px;
+}
+.expend li:nth-child(10) i{
+	width: 19px;
+	height: 24px;
+	margin-bottom: 6px;
+	background-position: -135px -44px;
+}
+.expend li:nth-child(11) i{
+	width: 24px;
+	height: 22px;
+	background-position: -132px -90px;
+}
+.expend li:nth-child(12) i{
+	width: 17px;
+	height: 24px;
+	margin-bottom: 6px;
+	background-position: -48px 0px;
+}

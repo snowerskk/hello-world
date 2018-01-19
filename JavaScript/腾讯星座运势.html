@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>星座运势</title>
+	<style>
+	.fl{
+		float:left;
+	}
+	.fr{
+		float:right;
+	}
+	a{
+		text-decoration: none;
+	}
+	.wrap{
+		width:278px;
+		border:1px solid #d2e1f1;
+		margin:100px auto;
+	}
+	h2{
+		font-size:14px;
+		font-weight: bold;
+		color:#0873c0;
+		text-indent: 15px;
+	}
+	.middle{
+		overflow: hidden;
+	}
+	.left{
+		width:50px;
+		height: 50px;
+		margin-left: 15px;
+		margin-right: 10px;
+		background:url(http://mat1.gtimg.com/www/images/qq2012/temp/astroIcon.png) 0px 0px;
+	}
+	#sele{
+		margin-bottom: 6px;
+	}
+	.ysbg{
+		width:80px;
+		height:13px;
+		margin-top: 1px;
+		background: url(http://mat1.gtimg.com/www/images/qq2012/temp/yunshi.png) left top no-repeat;
+	}
+	#ys{
+		width:0%;
+		height:100%;
+		background: url(http://mat1.gtimg.com/www/images/qq2012/temp/yunshi.png) 0px -27px no-repeat;
+	}
+	span{
+		width:65px;
+		height:18px;
+		font-size:12px;
+	}
+	.bottom{
+		width:240px;
+		height:90px;
+	}
+	.bottom #content{
+		width:240px;
+		height:82px;
+		line-height: 26px;
+		margin-top:10px;
+		margin-left: 15px;
+		font-size:14px;
+		color:#323f5a;
+		overflow: hidden;
+	}
+	</style>
+	<script>
+		window.onload=function(){
+			var arr1=["今天继续防小人，交际当中难免会遇到，今天在与亲密关系的人相处的当中，容易去压制去方。有的人...","注意健康，不可太过纵欲，不然容易腰部不适。钱财上起伏变化会比较大，容易资金进出周转频繁。...","情绪波动会比较大，原因可能是钱财方面的，还容易因为朋友的原因让自己不太快乐。今天适合外出去...","家庭中容易多争执，宜多忍，避免情绪化将事态扩大。不过巨蟹今天遇事，也是容易逃避，去寻求宗教...","今天宜注意言语，易与人发生口舌冲突，短途出行，容易有所不顺。交际方面，容易遇到善变，而情绪...","今天的财运会比较差一点，注意理性消费，容易有不必要的钱财损失。...","今天运势不太顺畅，容易有钱财方面的压力，还有就是会感受到另一半的逼迫。今天适合用一些新奇的...","暗犯小人的一天，潜意识方面，也容易变得有些消极与负面，注意掌控好自己的情绪。...","社交方面，容易有不太和谐的因素出现。另一半情绪会多变，变得让人捉摸不定。...","继续承接昨天的好财运，不过今天就会忙碌起来，事业上，也会因为客户的原因，带来压力。...","如果有外出游玩的打算，出行要小心一点，容易遇到障碍与不顺，防交通事故。...","社交运旺，宜交朋友结友，但要注意健康方面的问题，这方面运势会稍差一些。..."];
+			var arr2=["0%","60%","60%","60%","60%","60%","60%","60%","60%","60%","60%","60%"];
+			var sele=document.getElementById('sele');
+			var ico=document.getElementById('icon');
+			var content=document.getElementById('content');
+			var star=document.getElementById('ys');
+			sele.onchange=function(){
+				ico.style.backgroundPosition="0 "+(-50*this.value)+"px";
+				star.style.width=arr2[this.value];
+				content.innerHTML=arr1[this.value];
+				content.innerHTML += "<a href=\"#\">[详细]</a>";
+			}
+		}
+	</script>
+</head>
+<body>
+<div class="wrap">
+	<div class="top">
+		<h2>星座运势</h2>
+	</div>
+	<div class="middle">
+		<div class="left fl" id="icon"></div>
+		<div class="right fl">
+			<select name="" id="sele">
+				<option value="0">白羊座(03.21-04.19)</option>
+				<option value="1">金牛座(04.20-05.20)</option>
+				<option value="2">双子座(05.21-06.21)</option>
+				<option value="3">巨蟹座(06.22-07.22)</option>
+				<option value="4">狮子座(07.23-04.22)</option>
+				<option value="5">处女座(08.23-04.22)</option>
+				<option value="6">天秤座(09.23-04.23)</option>
+				<option value="7">天蝎座(10.24-04.22)</option>
+				<option value="8">射手座(11.23-04.21)</option>
+				<option value="9">摩羯座(12.22-04.19)</option>
+				<option value="10">水瓶座(01.20-04.18)</option>
+				<option value="11">双鱼座(02.19-04.20)</option>
+			</select>
+			<div>
+				<span class="fl">今日运势：</span><div class="ysbg fl"><div id="ys"></div></div>
+			</div>
+			
+		</div>
+	</div>
+	<div class="bottom">
+		<p id="content">今天宜注意言语，易与人发生口舌冲突，短途出行，容易有所不顺。交际方面，容易遇到善变，而情绪...
+			<a href="#">[详细]</a>
+		</p>
+	</div>
+</div>	
+</body>
+</html>

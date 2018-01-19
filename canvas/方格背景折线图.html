@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试</title>
+    <style>
+    canvas{
+        border:1px solid black;
+    }
+    </style>
+    <!-- <script src="jquery-3.2.1.min.js"></script> -->
+    <script>
+    window.onload=function(){
+        var canvas=document.getElementById('demo');
+        var ctx=canvas.getContext("2d");
+        //画布样式
+        canvas.width=800;
+        canvas.height=600;
+        canvas.style.border="1px solid #000";
+        //画背景表格
+        var rectH=10;
+        var rectW=20;
+        for(var i=1;i<canvas.height/rectH;i++){
+            ctx.moveTo(0, i*rectH);
+            ctx.lineTo(canvas.width, i*rectH);
+            ctx.stroke();
+        }
+        for(var i=1;i<canvas.width/rectW;i++){
+            ctx.moveTo(i*rectW, 0);
+            ctx.lineTo(i*rectW,canvas.height);
+            ctx.strokeStyle="yellow";
+            ctx.stroke();
+        }
+        //坐标轴
+        ctx.beginPath();
+        ctx.moveTo(100,500);
+        ctx.lineTo(100,100);
+
+        ctx.moveTo(100,500);
+        ctx.lineTo(700,500);
+        //箭头
+        ctx.moveTo(100,100);
+        ctx.lineTo(80,130);
+        ctx.moveTo(100,100);
+        ctx.lineTo(120,130);
+        ctx.moveTo(700,500);
+        ctx.lineTo(670,480);
+        ctx.moveTo(700,500);
+        ctx.lineTo(670,520);
+        ctx.lineWidth="4";
+        ctx.strokeStyle="green";
+        ctx.stroke();
+        //折现
+        ctx.beginPath();
+        ctx.moveTo(100,500);
+        ctx.lineTo(120,400);
+        ctx.lineTo(160,390);
+        ctx.lineTo(200,310);
+        ctx.lineTo(240,330);
+        ctx.lineTo(300,200);
+        ctx.lineTo(340,270);
+        ctx.lineTo(460,300);
+        ctx.lineTo(580,460);
+        ctx.lineWidth="4";
+        ctx.strokeStyle="red";
+        ctx.stroke();
+    }
+    </script>
+</head>
+<body>
+<canvas id="demo">
+</canvas>
+</body>
+</html>

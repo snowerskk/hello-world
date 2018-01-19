@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>留言板</title>
+    <script>
+    window.onload=function()
+    {
+        var obtn1=document.getElementById('btn1');
+        var otxt1=document.getElementById('txt1');
+        var otxt2=document.getElementById('txt2');
+        otxt2.onmousedown=function()
+        {
+            if(otxt2.value=='请输入您的留言...')
+            {
+                otxt2.value='';
+            }
+        }
+        obtn1.onclick=function()
+        {
+            txt1.value+=txt2.value+'\n';
+            txt2.value='';
+        }
+        otxt2.onkeydown=function(ev)
+        {
+            if(ev.ctrlKey&&ev.keyCode==13)
+            {
+                txt1.value+=txt2.value+'\n';
+                txt2.value='';
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+<h2>留言板</h2>
+<textarea cols="50" rows="25" id="txt1">
+</textarea>
+<br/>
+<input type="text" id="txt2" value="请输入您的留言...">
+<input type="button" id="btn1" value="发表">
+</body>
+</html>

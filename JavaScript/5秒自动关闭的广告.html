@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5秒自动关闭广告</title>
+	<style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	div{
+		font-size: 200px;
+		text-align: center;
+	}
+	#box{
+		width:100%;
+		height:640px;
+		background: rgba(0,0,0,0.8);
+		color:gold;
+		position: fixed;
+		left:0;
+		top:0;
+	}
+	#close{
+		width:30px;
+		height:30px;
+		font-size: 20px;
+		color:red;
+		position:absolute;
+		right:0;
+		top:10px;
+	}
+	</style>
+	<script>
+		window.onload=function(){
+			var box=document.getElementById('box');
+			var close=document.getElementById('close');
+			var count=5;
+			setTimeout(time,1000);
+			function time(){
+				close.innerHTML=count;
+				count--;
+				if(count<0){
+					box.style.display="none";
+				}else{
+					setTimeout(time,1000);
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+<div>这是内容</div>	
+<div id="box">
+	这是广告！
+	<div id="close">
+		
+	</div>
+</div>
+</body>
+</html>

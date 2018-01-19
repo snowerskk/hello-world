@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <title>进度条</title>
+    <style>
+    body{
+        margin:0;
+        padding:0;
+        background: #f0f0f0;
+        overflow: hidden;
+    }
+    </style>
+    <!-- <script src="jquery-3.2.1.min.js"></script> -->
+    <script src="konva.js"></script>
+    <script src="progressBar.js"></script>
+    <script>
+    window.onload=function(){
+        //创建舞台
+        var stage=new Konva.Stage({
+            container:'contain',
+            width:window.innerWidth,
+            height:window.innerHeight
+        });
+        //创建层
+        var layer=new Konva.Layer();
+        // 把层添加到舞台
+        stage.add(layer);
+        
+        var p=new ProgressBar({
+            x:1/8*stage.width(),
+            y:1/2*stage.height(),
+            w:3/4*stage.width(),
+            h:1/12*stage.height(),
+            fillStyle:"gold",
+            strokeStyle:"lightblue"
+        });
+        p.addToGroupOrLayer(layer);
+        layer.draw();
+        p.changeValue(.9);
+    }
+    
+
+    </script>
+</head>
+<body>
+<!-- 舞台容器 -->
+<div id="contain"></div>
+</body>
+</html>

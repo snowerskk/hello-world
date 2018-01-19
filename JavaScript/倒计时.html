@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>倒计时</title>
+	<style>
+	.wrap{
+		width:180px;
+		margin:100px auto;
+		background-color: yellow;
+		padding:18px;
+	}
+	</style>
+	<script>
+		//利用到期日距今的毫秒数计算
+		window.onload=function(){
+			var div=document.getElementById('demo');
+			var endTime=new Date("2018-02-15 08:00:00");
+			setInterval(clock,1000);
+			function clock(){
+				var nowTime=new Date();
+				second=parseInt((endTime.getTime()-nowTime.getTime())/1000);
+				var d=parseInt(second/3600/24);
+				var h=parseInt(second/3600%24);
+				var m=parseInt(second/60%60);
+				var s=second%60;
+				div.innerHTML=d+"天"+checkTime(h)+"时"+checkTime(m)+"分"+checkTime(s)+"秒";
+			}
+			function checkTime(i){
+				if(i<10){
+					return "0"+i;
+				}else{
+					return i;
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+<div class="wrap">
+	<h1>倒计时</h1>
+	<p>距离到期还有：</p>	
+	<div id="demo">
+	</div>	
+</div>
+</body>
+</html>

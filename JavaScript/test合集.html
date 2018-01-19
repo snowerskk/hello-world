@@ -1,0 +1,500 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>Document</title>
+  <style>
+  /**{
+    margin:0;
+    padding:0;
+  }
+  li{
+    list-style: none;
+  }
+  .box{
+    width:600px;
+    height:600px;
+    margin:10px auto;
+  }
+  .boxTop{
+    width:100%;
+    height:150px;
+    background-color: snow;
+  }
+  .boxBottom{
+    width:100%;
+    height:450px;
+    background-color: pink;
+  }
+  #ul1 li{
+    width:190px;
+    height:150px;
+    line-height: 150px;
+    font-weight: 700;
+    font-size: 30px;
+    box-sizing: border-box;
+    border:1px solid black;
+    text-align: center;
+    float:left;
+    cursor:pointer;
+  }
+  #ul1 li:hover{
+    background-color: pink;
+  }
+  #ul1 li:nth-child(2){
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  #ul2 li{
+    width:600px;
+    height:450px;
+    background-color: blue;
+    line-height: 450px;
+    color:white;
+    font-weight: 700;
+    font-size: 30px;
+    text-align: center;
+    display: none;
+  }*/
+  div{
+    width:100px;
+    height:100px;
+    background-color: red;
+    margin-top: 10px;
+    display: none;
+  }
+</style>
+<script type="text/javascript">
+    //第一天作业
+    // 第一题
+    // var a=(123+45*78)/(34+543)-9*(324-34);
+    // alert(a);
+    // 第二题 华氏度h 摄氏度s
+    // var h;
+    // var s=prompt("请输入摄氏度：");
+    // h=(9/5)*s+32;
+    // alert("华氏度："+h);
+    // 第三题
+    // var s=Math.pow((23+Math.pow(5,7))/45,2);
+    // console.log(s);
+    // 第四题 面积area 边长side
+    // var side=prompt("请输入六边形的边长：");
+    // var area=3*Math.sqrt(3)/2*Math.pow(side,2);
+    // alert("您所求的六边形面积是："+area);
+    // // 第五题
+    // var arr=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+    // var days=10000;
+    // var number=(6+days)%7;
+    // alert(arr[number]);
+    // 第六题
+    // var input=prompt("请输入一个三位数");
+    // var a=input.charAt(0);
+    // var b=input.charAt(1);
+    // var c=input.charAt(2);
+    // var number=parseInt(a)+parseInt(b)+parseInt(c);
+    // alert("三位数各位数之和："+number);
+    // var score=prompt("请输入你的得分！");
+    // if(score>=85){
+    //   alert("优秀");
+    // }else if(score>=70){
+    //   alert("良好");
+    // }else if(score>=60){
+    //   alert('及格');
+    // }else{
+    //   alert('不及格');
+    // var weight=prompt("请输入您的体重，单位是kg");
+    // var height=prompt("请输入您的身高，单位是m");
+    // var BMI=weight/Math.pow(height,2);
+    // if(BMI<18.5){
+    //   alert("您的BMI指数是："+BMI+" 您的体重过轻");
+    // }else if(BMI<24.99){
+    //   alert("您的BMI指数是："+BMI+" 您的体重正常");
+    // }else if(BMI<28){
+    //   alert("您的BMI指数是："+BMI+" 您的体重过重");
+    // }else if(BMI<=32){
+    //   alert("您的BMI指数是："+BMI+" 您已经肥胖了");
+    // }else{
+    //   alert("您的BMI指数是："+BMI+" 您太胖了！");
+    // }
+    // 第二天作业
+    // 第一题 用户输入一个数字，然后判断这个数字能否被5、6整除，根据情况弹出下面4种警告框：
+    // 
+    // 第二题 找出1~1000之中，所有能被5整除，或者被6整除的数字。在控制台输出。
+    // for(var i=1;i<=1000;i++){
+    //   if(i%5==0 || i%6==0){
+    //     console.log(i);
+    //   }
+    // }
+    // 
+    // 第三题 用户输入一个数字，列出所有它能够整除的数字。
+    // var number=prompt("输入数字：");
+    // for(var i=0;i<=number;i++){
+    //   if(number%i==0){
+    //     console.log(i);
+    //   }
+    // }
+    // var j=0;
+    // for(var i = 1; i <= 100; i++){
+
+    //   j=j+i;
+    // }
+    // console.log(j);
+    // for(var i=1;i<=60;i++){
+    //   if( i%7 != 0 && i%10 != 7){
+    //     console.log(i);
+    //   }
+    // }
+    // for(var i=1000;i<=9999;i++){
+    //   i=i.toString();
+    //   var qianwei=i.charAt(3);
+    //   var baiwei=i.charAt(2);
+    //   var shiwei=i.charAt(1);
+    //   var gewei=i.charAt(0);
+    //   var sum=Math.pow(qianwei,4)+Math.pow(baiwei,4)+Math.pow(shiwei,4)+Math.pow(gewei,4);
+    //   if(sum==i){
+    //     console.log(i);
+    //   }
+    // }
+    // var num=prompt("计算阶乘");
+    // var product=1;
+    // for(i=1;i<=num;i++){
+    //   product=product*i;
+    // }
+    // alert(product);
+    // for(var i=2;i<10000;i++){
+    //   if(panduanzhishu(i)){
+    //     console.log(i);
+    //   }
+    // }
+    // function panduanzhishu(number){
+    //   var sum=0;
+    //   for(var i=0;i<=number;i++){
+    //     if(number%i==0){
+    //       sum++;
+    //     }
+    //   }
+    //   if(sum==2){
+    //     return true;
+    //   }else{
+    //     return false;
+    //   }
+    // }
+    // 作业三 第一题
+    // var sum=0;
+    // for(i=2;i<=100;i++){
+    //   var s=(i+1)/i;
+    //   console.log(s);
+    //   sum=sum+s;
+    // }
+    // alert(sum);
+    // 第二题 请列出1~10000的所有完全数
+    // for(var a=1;a<=10000;a++){
+    //   jisuanwanquanshu(a);
+    // }
+    // function jisuanwanquanshu(number){
+    //   var sum=0;
+    //   for(i=1;i<=number;i++){
+    //     if(number%i==0){
+    //       if(i!=number){
+    //         sum=sum+i;  
+    //       }  
+    //     }
+    //   }
+    //   if(sum==number){
+    //     console.log(sum);
+    //   }
+    // }
+    // 九九乘法表
+    // window.onload=function(){
+    //   var box=document.getElementById('box');
+    //   for(var i=1;i<10;i++){
+    //     for(var j=1;j<=i;j++){
+    //       box.innerHTML=box.innerHTML+(i+"*"+j+"="+i*j)+' ';  
+    //     }
+    //     box.innerHTML=box.innerHTML+'\n';
+    //   }
+    // }
+    //求200-300之间能被3整除的第一个数
+    // for(var i=200;i<=300;i++){
+    //   if(i%7 == 0){
+    //     console.log(i/7);
+    //     break;
+    //   }
+    // }
+    // 任意输入一个整数，求他的位数
+    // var num=prompt("请输入任意数字");
+    // if(num<10){
+    //   alert("这是个一位数");
+    // }else if(num<100){
+    //   alert("这是个两位数");
+    // }else if(num<1000){
+    //   alert("这是个三位数");
+    // }else if(num<10000){
+    //   alert("这是个四位数");
+    // }else{
+    //   alert("太大了，别闹！");
+    // }
+    //把1-100之间所有的奇数存到一个空数组里面
+    // var array=[];
+    // var j=0;
+    // for(var i=1;i<=100;i++){
+    //   if(i%2 != 0){
+    //     array[j]=i;
+    //     j++;
+    //   }
+    // }
+    // console.log(array);
+    // 用户输入一个数，把他到过来显示
+    // var num=parseInt(prompt("输入一个整数"));
+    // var result="";
+    // var tmp=0;
+    // while(num != 0){
+    //   tmp=num%10;
+    //   num=parseInt(num/10);
+    //   result+=tmp.toString();
+    // }
+    // alert(result);
+    // 找出数组中的最大值和最小值 以及所在位置
+    // var arr=[3,2,1,4,6,8];
+    // var min=arr[0];
+    // var max=arr[0];
+    // var minIndex=0;
+    // var maxIndex=0;
+    // for(i=1;i<arr.length;i++){
+    //   if(arr[i]<min){
+    //     min=arr[i];
+    //     minIndex=i;
+    //   }
+    //   if(arr[i]>max){
+    //     max=arr[i];
+    //     maxIndex=i;
+    //   }
+    // }
+    // console.log("数组中的最小值是："+min+"。最小值索引位置是："+minIndex);
+    // console.log("数组中的最大值是："+max+"。最大值索引位置是："+maxIndex);
+    //将字符串数组用|分割
+    // var arr=["aa","bb","cc"];
+    // var str="";
+    // for(var i=0;i<arr.length-1;i++){
+    //   str+=arr[i]+'|';
+    // }
+    // str+=arr[arr.length-1];
+    // console.log(str);
+    // 将数组中为0的值去掉，将其他值形成新的数组
+    // var arr1=[1,2,2,0,6,7,4,0,9,4,0];
+    // var arr2=[];
+    // var j=0;
+    // for(var i=0;i<arr1.length;i++){
+    //   if(arr1[i] == 0){
+    //     arr1[i]=arr1[arr1.length+1];
+    //   }else{
+    //     arr2[j]=arr1[i];
+    //     j++;
+    //   }
+    // }
+    // console.log(arr1);
+    // console.log(arr2);
+    // 翻转数组
+    // var arr1=[1,2,3,4,5,6,7];
+    // var arr2=[];
+    // for(var i=0;i<arr1.length;i++){
+    //   arr2[i]=arr1[arr1.length-i-1];
+    // }
+    // arr1=arr2;
+    // console.log(arr1);
+    //冒泡排序
+    // var arr=[2,4,6,3,1];
+    // for(var j=0;j<arr.length-1;j++){
+    //   for(var i=0;i<arr.length-1-j;i++){
+    //     if(arr[i]>arr[i+1]){
+    //       var tmp=arr[i];
+    //       arr[i]=arr[i+1];
+    //       arr[i+1]=tmp;
+    //     }
+    //   }
+    // }
+    
+    // console.log(arr);
+    // 
+    // 函数
+    // function sum(a,b){
+    //   var result=0;
+    //   a = a || 0;
+    //   b = b || 0;
+    //   for(var i=a;i<=b;i++){
+    //     result+=i;
+    //   }
+    //   return(result);
+    // }
+    // console.log(sum(2,1000));
+    // 圆面积函数
+    // function cirArea(r){
+    //   var area=Math.PI*Math.pow(r,2);
+    //   return area;
+    // }
+    //圆周长函数
+    // function cirPerimeter(r){
+    //   var perimeter=2*Math.PI*r;
+    //   return perimeter;
+    // }
+
+    // console.log("圆面积："+cirArea(2));
+    // console.log("圆周长："+cirPerimeter(2));
+    // 
+    // 求一组数中最大值和最小值的函数
+    // function extreme(arr){
+    //   var min=arr[0];
+    //   var max=arr[0];
+    //   for(var i=1;i<arr.length;i++){
+    //     if(min>arr[i]){
+    //       min=arr[i];
+    //     }
+    //     if(max<arr[i]){
+    //       max=arr[i];
+    //     }
+    //   }
+    //   return {min:min,max:max};
+    // }
+    // arr2=[1,22,33];
+    // console.log(extreme(arr2).max);
+    // 
+    // 判断一个数是否是素数
+    // function sushu(number){
+    //   number=number || 0;
+    //   var sum=0;
+    //   for(var i=1;i<=number;i++){
+    //     if(number%i == 0){
+    //       sum++;
+    //     } 
+    //   }
+    //   if(sum==2){
+    //     alert("素数");
+    //   }else{
+    //     alert("不是素数");
+    //   }
+    // }
+    // sushu(90);
+    // 
+    // 求阶乘
+    // function jiecheng(number){
+    //   number=number || 0;
+    //   var cj=1;
+    //   for(var i=2;i<=number;i++){
+    //     cj*=i;
+    //   }
+    //   return cj;
+    // }
+    // console.log(jiecheng(0));
+    // 
+    // 求1！+2！+3！+。。。+n！
+    // function jiechenghe(n){
+    //   n = n || 0;
+    //   sum=0;
+    //   for(var i=0;i<=n;i++){
+    //     //调用上面的阶乘函数
+    //     sum+=jiecheng(i);
+    //   }
+    //   return sum;
+    // }
+    // console.log(jiechenghe(4));
+    // 
+    // 求菲波那切数列中的第n个数是多少 1 1 2 3 5 8 13 21...
+    // function fb(n){
+    //   n = n || 0;
+    //   if(n<=0){
+    //     return -1;
+    //   }
+    //   var n1=1;
+    //   var n2=1;
+    //   var sum=0;
+    //   for(i=3;i<=n;i++){
+    //     sum=n1+n2;
+    //     n1=n2;
+    //     n2=sum;
+    //   }
+    //   return n2
+    // }
+    // console.log(fb(0));
+    // 
+    //  递归求累加
+    // function getSum(n){
+    //   if(n===1){
+    //     return 1;
+    //   }
+    //   return n+getSum(n-1);
+    // }
+    // console.log(getSum(100)); 
+    // 
+    // 递归求各位数之和
+    // function getSum2(n){
+    //   if(n<10){
+    //     return n;
+    //   }
+    //   var sum=n%10+getSum2(parseInt(n/10));
+    //   return sum;
+    // }
+    // console.log(getSum2(345));
+    // 
+    // 递归写斐波那契数列
+    // function fb(n){
+    //   if(n<=0){
+    //     return -1;
+    //   }
+    //   if(n == 1 || n == 2){
+    //     return 1;
+    //   }
+    //   return fb(n-2)+fb(n-1);
+    // }
+    // console.log(fb(-2));
+    // 
+    // 写一个构造函数
+    // function Girlfriend(name,age,height){
+    //   this.name=name;
+    //   this.age=age;
+    //   this.height=height;
+    //   this.sayHi=function(){
+    //     console.log("大家好！我叫"+this.name);
+    //   }
+    // }
+    // var cc=new Girlfriend("小可爱",16,168);
+    // console.log(cc);
+    // cc.sayHi();
+    // 
+
+ 
+
+    
+  </script>
+
+</head>
+<body>
+<button>显示第一个div</button>
+<button>显示第二个div</button>
+<button>显示第三个div</button>
+<button>显示第四个div</button>
+<div>1</div>
+<div>2</div>
+<div>3</div>
+<div>4</div>
+
+<!--   <h1>九九乘法表</h1>
+  <textarea name="" id="box" cols="90" rows="10"></textarea> -->
+
+<!-- <div class="box">
+  <div class="boxTop">
+    <ul id="ul1">
+      <li>图片一</li>
+      <li>图片二</li>
+      <li>图片三</li>
+    </ul>
+  </div>
+  <div class="boxBottom">
+    <ul id="ul2">
+      <li>图片一</li>
+      <li>图片二</li>
+      <li>图片三</li>
+    </ul>
+  </div>
+</div> -->
+</body>
+</html>

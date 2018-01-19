@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>保留小数位数</title>
+	<style>
+
+	</style>
+	<script>
+		window.onload=function(){
+			//保留小数 num传入数字 n需要保留几位小数
+			function keepDec(num,n){
+				         //转换成字符串            获取小数点所在位数
+				var number=num.toString().substr(0,num.toString().indexOf('.')+1+n);
+				//返回字符串转换成数字
+				return Number(number);
+			}
+		}
+	</script>
+</head>
+<body>
+
+</body>
+</html>

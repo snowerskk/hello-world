@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>倒数页面跳转</title>
+	<style>
+	</style>
+	<script>
+		window.onload=function(){
+			var wrap=document.getElementById('wrap');
+			var count=5;
+			var speed=1000;
+			setTimeout(jump,speed);
+			//用递归方式实现setTimeout的多次触发
+			function jump(){
+				wrap.innerHTML="您访问的页面找不到了！本页面将在"+count+"秒后跳转<br/><a href='http://www.baidu.com'>立即跳转</a>";
+				count--;
+				if(count<0){
+					window.location.href="http://www.baidu.com";
+				}else{
+					setTimeout(jump,speed);
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+<div id="wrap"></div>	
+</body>
+</html>

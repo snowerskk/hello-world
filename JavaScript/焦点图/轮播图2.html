@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>焦点图</title>
+	<style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	.pg{
+		width:800px;
+		height:580px;
+		border:1px solid black;
+		margin:5px auto;
+		padding:20px;
+	}
+	.pg .box ul{
+		width:600%;
+		list-style: none;
+		position: absolute;
+		left:0;
+		top:0;
+	}
+	.pg .box ul li{
+		float:left;
+	}
+	.box{
+		width:100%;
+		height:100%;
+		background: #eee;
+		position: relative;
+		overflow: hidden;
+	}
+	.pg .box img{
+		width:800px;
+		height:580px;
+		vertical-align: top;
+	}
+	.leftArrow{
+		width:100px;
+		height:580px;
+		position: relative;	
+	}
+	.leftArrow span{
+		width:100px;
+		height:100px;
+		display: block;
+		line-height: 100px;
+		text-align: center;
+		background-color: rgba(255,255,255,0.1);
+		color:white;
+		font-size: 80px;
+		font-weight: 700;
+		cursor:pointer;
+		position: absolute;
+		left:0;
+		top:50%;
+		margin-top: -50px;
+		display: none;
+	}
+	.rightArrow{
+		width:100px;
+		height:580px;
+		position: relative;
+		left:700px;
+		bottom:580px;
+	}
+	.rightArrow span{
+		width:100px;
+		height:100px;
+		display: block;
+		line-height: 100px;
+		text-align: center;
+		background-color: rgba(255,255,255,0.1);
+		color:white;
+		font-size: 80px;
+		font-weight: 700;
+		cursor:pointer;
+		position: absolute;
+		right:0;
+		top:50%;
+		margin-top: -50px;
+		display: none;
+	}
+	
+	</style>
+	<script>
+		window.onload=function(){
+			function $(id){return document.getElementById(id);}
+			$('j_leftArrow').onmouseover=function(){
+				$('spl').style.display="block";
+			}
+			$('j_leftArrow').onmouseleave=function(){
+				$('spl').style.display="none";
+			}
+			$('j_rightArrow').onmouseover=function(){
+				$('spr').style.display="block";
+			}
+			$('j_rightArrow').onmouseleave=function(){
+				$('spr').style.display="none";
+			}
+			var speed=0,target=0;
+			setInterval(function(){
+				if(target>=0){
+					target=0;
+				}else if(target<=-3200){
+					target=-3200;
+				}
+				speed+=(target-speed)/10;
+				$('j_img').style.left=speed+"px";
+			},30)
+			$('spl').onclick=function(){
+				target+=800;
+			}
+			$('spr').onclick=function(){
+				target-=800;
+			}
+		}
+	</script>
+</head>
+<body>
+<div class="pg">
+	<div class="box">
+		<ul id="j_img">
+			<li><a href="#"><img src="http://attachments.gfan.com/forum/attachments2/201302/03/11281446n2st1its4152n5.jpg" alt="抱歉图片弄丢了"></a></li>
+			<li><a href="#"><img src="http://img2.niutuku.com/desk/1207/1057/ntk133889.jpg" alt="抱歉图片弄丢了"></a></li>
+			<li><a href="#"><img src="http://g.hiphotos.baidu.com/zhidao/pic/item/cefc1e178a82b901dcdb9a84728da9773912ef17.jpg" alt="抱歉图片弄丢了"></a></li>
+			<li><a href="#"><img src="http://img2.niutuku.com/desk/1208/1611/ntk-1611-50389.jpg" alt="抱歉图片弄丢了"></a></li>
+			<li><a href="#"><img src="http://img4.imgtn.bdimg.com/it/u=2865731094,3400192128&fm=214&gp=0.jpg" alt="抱歉图片弄丢了"></a></li>
+		</ul>
+		<div class="leftArrow" id="j_leftArrow">
+			<span id="spl"><</span>
+		</div>
+		<div class="rightArrow" id="j_rightArrow">
+			<span id="spr">></span>
+		</div>
+	</div>
+</div>	
+</body>
+</html>

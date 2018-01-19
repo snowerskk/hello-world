@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>全选取消反选</title>
+	<style>
+	.top{
+		width:150px;
+		margin:20px auto;
+	}
+	.bottom{
+		width:100px;
+		margin:10px auto;
+	}
+	ul{
+		list-style: none;
+		width:90px;
+	}
+	</style>
+	<script>
+		window.onload=function(){
+			var abtn=document.getElementsByTagName('button');
+			var ainput=document.getElementsByTagName('input');
+			//全选
+			abtn[0].onclick=function(){
+				for(var i=0,len=ainput.length;i<len;i++){
+					ainput[i].checked=true;
+				}
+			}
+			//取消
+			abtn[1].onclick=function(){
+				for(var i=0,len=ainput.length;i<len;i++){
+					ainput[i].checked=false;
+				}
+			}
+			//反选 
+			abtn[2].onclick=function(){
+				for(var i=0,len=ainput.length;i<len;i++){
+					ainput[i].checked==false?ainput[i].checked=true:ainput[i].checked=false;	
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+<div class="top">
+	<button>全选</button>
+	<button>取消</button>
+	<button>反选</button>
+</div>	
+<div class="bottom">
+	<ul>
+		<li>
+			选项1：<input type="checkbox" name="" id="">
+			选项2：<input type="checkbox" name="" id="">
+			选项3：<input type="checkbox" name="" id="">
+			选项4：<input type="checkbox" name="" id="">
+			选项5：<input type="checkbox" name="" id="">
+			选项6：<input type="checkbox" name="" id="">
+			选项7：<input type="checkbox" name="" id="">
+			选项8：<input type="checkbox" name="" id="">
+			选项9：<input type="checkbox" name="" id="">
+			选项10：<input type="checkbox" name="" id="">
+		</li>
+	</ul>
+</div>	
+</body>
+</html>

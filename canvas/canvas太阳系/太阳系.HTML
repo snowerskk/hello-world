@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <title>太阳系</title>
+    <style>
+    body{
+        margin:0;
+        padding:0;
+        overflow: hidden;
+    }
+    </style>
+    <!-- <script src="jquery-3.2.1.min.js"></script> -->
+    <script src="../konva.js"></script>
+    <script>
+    window.onload=function(){
+        //创建舞台
+        var stage=new Konva.Stage({
+            container:'container',
+            width:window.innerWidth,
+            height:window.innerHeight
+        });
+        //圆心
+        var cenX=stage.width()/2;
+        var cenY=stage.height()/2;
+        //创建层
+        var layerBg=new Konva.Layer({});
+        var layerBgCircle=new Konva.Layer({});
+        var layerPlanets=new Konva.Layer({
+            clipFunc: function(ctx) {
+                ctx.arc(153, 48, 16, 0, Math.PI * 2);
+            },
+            x:cenX,
+            y:cenY
+        });
+        var layerBgSun=new Konva.Layer({
+            clipFunc: function(ctx) {
+                ctx.arc(cenX, cenY, 80, 0, Math.PI * 2);
+            }
+        });
+        stage.add(layerBg);
+        stage.add(layerBgSun);
+        stage.add(layerBgCircle);
+        stage.add(layerPlanets);
+        //背景图片-宇宙
+        var imgBg=new Image();
+        imgBg.src='universe.jpeg';
+        imgBg.onload=function(){
+            var KimgBg=new Konva.Image({
+                image:imgBg,
+                x:0,
+                y:0,
+                width:stage.width(),
+                height:stage.height()
+            });
+            layerBg.add(KimgBg);
+            layerBg.draw();
+        }
+        //背景图片-太阳
+        var imgBgSun=new Image();
+        imgBgSun.src='sun.jpg';
+        imgBgSun.onload=function(){
+            var KimgBgSun=new Konva.Image({
+                image:imgBgSun,
+                x:cenX-100,
+                y:cenY-100,
+                width:200,
+                height:200
+            });
+            layerBgSun.add(KimgBgSun);
+            layerBgSun.draw();
+        }
+        //背景-运行轨道
+        function Circle(r){
+            var circle=new Konva.Circle({
+                x:cenX,
+                y:cenY,
+                radius:r,
+                stroke:'white',
+                opacity:.2
+            });
+            return circle;
+        }
+        var r1=0.387,r2=0.723,r3=1,r4=1.52,r5=5.2,r6=9.54,r7=19.218,r8=30.1;
+        var circle1=new Circle(80*(1+r1));
+        var circle2=new Circle(80*(1+r2));
+        var circle3=new Circle(80*(1+r3));
+        var circle4=new Circle(80*(1+r4));
+        var circle5=new Circle(80*(1+r5));
+        var circle6=new Circle(80*(1+r6));
+        var circle7=new Circle(80*(1+r7));
+        var circle8=new Circle(80*(1+r8));
+        layerBgCircle.add(circle1);
+        layerBgCircle.add(circle2);
+        layerBgCircle.add(circle3);
+        layerBgCircle.add(circle4);
+        layerBgCircle.add(circle5);
+        layerBgCircle.add(circle6);
+        layerBgCircle.add(circle7);
+        layerBgCircle.add(circle8);
+        layerBgCircle.draw();
+
+        var group=new Konva.Group({
+            
+        });
+        layerPlanets.add(group);
+        var imgPlanets=new Image();
+        imgPlanets.src='planets.jpg';
+        imgPlanets.onload=function(){
+            var KimgPlanets=new Konva.Image({
+                image:imgPlanets,
+                x:0,
+                y:30,
+                width:200,
+                height:145
+            });
+            group.add(KimgPlanets);
+
+            // layerPlanets.add(KimgPlanets);
+            
+        }
+        layerPlanets.draw();
+        var animate=new Konva.Animation(function(frame){
+            var rotateAngel=20*frame.timeDiff/1000;
+            layerPlanets.rotate(rotateAngel);
+
+        },layerPlanets);
+        animate.start();
+
+        
+        
+    }
+    
+
+    </script>
+</head>
+<body>
+<!-- 舞台容器 -->
+<div id="container"></div>
+</body>
+</html>

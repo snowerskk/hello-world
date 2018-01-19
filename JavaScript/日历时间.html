@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>日历时间</title>
+	<style>
+	.page{
+		width:120px;
+		height:150px;
+		padding:15px;
+		font-family: 微软雅黑;
+		background: #3087EC;
+		color:white;
+		margin:100px auto;
+		border-radius: 3%;
+	}
+	.page p{
+		text-align: center;
+		font-size: 14px;
+	}
+	.page span{
+		width:120px;
+		height:100px;
+		line-height: 100px;
+		color:gray;
+		text-align: center;
+		font-size: 60px;
+		font-weight: bold;
+		display: block;
+		background: yellow;
+		box-shadow: 3px 3px 3px;
+	}
+	.page div{
+		width:120px;
+		font-weight: bold;
+		text-align: center;
+	}
+	</style>
+	<script>
+		function time(){
+			var date=new Date();
+			var y=date.getFullYear();
+			var m=date.getMonth()+1;
+			var d=date.getDate();
+			var week=date.getDay();
+			var H=date.getHours();
+			var M=date.getMinutes();
+			var S=date.getSeconds();
+			var arr=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+			var page=document.getElementById('page');
+			page.children[0].innerHTML=y+"-"+m+"-"+d+" "+arr[week];
+			page.children[1].innerHTML=d;
+			page.children[2].innerHTML=checkTime(H)+":"+checkTime(M)+":"+checkTime(S);
+		}
+		function checkTime(i)
+    	{
+        	if (i<10)
+        	{
+            	return "0"+i;
+        	}
+        	else
+        	{
+            	return i;
+        	}
+    	}	
+		window.onload=function(){
+			
+			setInterval(time,1000);
+
+		}
+	</script>
+</head>
+<body>
+<div class="page" id="page">
+	<p></p>
+	<span></span>
+	<div></div>
+</div>	
+</body>
+</html>

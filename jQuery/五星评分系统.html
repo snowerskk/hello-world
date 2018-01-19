@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>五星评分系统</title>
+	<style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	ul{
+		width:210px;
+		height:30px;
+		line-height:30px;
+		margin:200px auto;
+	}
+	li{
+		list-style: none;
+		float:left;
+		font-size: 30px;
+		margin-left:10px;
+		font-weight: bold;
+		color:gold;
+		cursor:pointer;
+	}
+	</style>
+	<script src="jquery-3.2.1.min.js"></script>
+	<script>
+		$(function(){
+			var wjx_sel="★";
+			var wjx_none="☆";
+			$("li").mouseenter(function(){
+				$(this).text(wjx_sel).prevAll().text(wjx_sel).end().nextAll().text(wjx_none);
+			}).click(function(){
+				alert("感谢您给出的"+($(this).index()+1)+"星评价!");
+				$(this).addClass('clicked').siblings().removeClass('clicked');
+			});
+			$("ul").mouseleave(function(){
+				$("li").text(wjx_none);
+				$(".clicked").text(wjx_sel).prevAll().text(wjx_sel).end().nextAll().text(wjx_none);
+			});
+		});
+	</script>
+</head>
+<body>
+<ul>
+	<li>☆</li>
+	<li>☆</li>
+	<li>☆</li>
+	<li>☆</li>
+	<li>☆</li>
+</ul>	
+</body>
+</html>

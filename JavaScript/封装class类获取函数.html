@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>class类获取函数</title>
+	<style>
+	
+	</style>
+	<script>
+		window.onload=function(){
+			function getClass(classname,id){
+				//浏览器支持getElementsByClassName直接用
+				if(document.getElementsByClassName){
+					if(id){//传入了父级id
+						var id=document.getElementById(id);
+						return id.getElementsByClassName(classname);
+					}else{//未传入id
+						return document.getElementsByClassName(classname);
+					}
+				}
+				//浏览器不支持的情况
+				if(id){//传入了父级id
+					var id=document.getElementById(id);
+					var dom=id.getElementsByTagName('*');
+				}else{//未传入id
+					var dom=document.getElementsByTagName('*');
+				}
+				var arr=[];
+				//遍历筛选并放进数组
+				for(var i=0,len=dom.length;i<len;i++){
+					//考虑到多个类名的情况
+					//用空格将类名分割成数组
+					var txtArr=dom[i].className.split(" ");
+					for(var j=0;j<txtArr.length;j++){
+						if(txtArr[j].className==classname){
+						//将含有目标类名的元素放入数组
+						arr.push(dom[i]);
+						}
+					}
+				}
+				return arr;
+			}
+		}
+	</script>
+</head>
+<body>
+
+</body>
+</html>

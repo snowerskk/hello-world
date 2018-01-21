@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task-6</title>
+	<style>
+	</style>
+	<script>
+		window.onload=function(){
+			function $(id){return document.getElementById(id);}
+			//左侧输入按钮
+			$('leftIn').onclick=function(){
+				var words=$('txt').value;
+				words=words.replace(/[^0-9a-zA-Z\u4e00-\u9fa5]/g,' ');
+				var arr=words.split(' ');
+				for(var i=0;i<arr.length;i++){
+					var span=document.createElement('span');
+					span.innerHTML=arr[i]+' ';
+					$('box').insertBefore(span,$('box').children[0]);
+					$('txt').value='';
+				}	
+			}
+			//右侧输入按钮
+			$('rightIn').onclick=function(){
+				var words=$('txt').value;
+				words=words.replace(/[^0-9a-zA-Z\u4e00-\u9fa5]/g,' ');
+				var arr=words.split(' ');
+				for(var i=0;i<arr.length;i++){
+					var span=document.createElement('span');
+					span.innerHTML=arr[i]+' ';
+					$('box').appendChild(span);
+					$('txt').value='';
+				}	
+			}
+			//左侧删除按钮
+			$('leftOut').onclick=function(){
+				if($('box').children.length>0){
+					$('box').removeChild($('box').children[0]);
+				}
+			}
+			//右侧删除按钮
+			$('rightOut').onclick=function(){
+				var len=$('box').children.length;
+				if(len>0){
+					$('box').removeChild($('box').children[len-1]);
+				}
+			}
+			//查询匹配按钮
+			$('matchBtn').onclick=function(){
+				var content='';
+				var aspan=$('box').getElementsByTagName('span');
+				var val=$('matchTxt').value;
+				var sum=0;
+				for(var i=0;i<aspan.length;i++){
+					aspan[i].style.background='';
+					content=aspan[i].innerHTML;
+					if(content.indexOf(val)>=0){
+						sum++;
+						aspan[i].style.background='red';
+						aspan[i].style.marginRight='2px';
+					}
+				}
+				if(sum==0){
+					$('matchTxt').value='';
+					alert('没有匹配目标');
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+<textarea name="" id="txt" cols="30" rows="10"></textarea>
+<input type="button" value="左侧入" id='leftIn'>
+<input type="button" value="右侧入" id='rightIn'>
+<input type="button" value="左侧出" id='leftOut'>
+<input type="button" value="右侧出" id='rightOut'>
+<div id='box'></div>
+<input type="text" name="" id="matchTxt" placeholder="输入想要匹配的内容">	
+<input type="button" name="" id="matchBtn" value='匹配'>	
+</body>
+</html>

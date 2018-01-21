@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task_1_9_1</title>
+	<style>
+	/*公共样式*/
+	*{
+		margin:0;
+		padding:0;
+		font-family: 微软雅黑;
+	}
+	a{
+		text-decoration:none;
+		color:#fff;
+		font-size: 12px;
+	}
+	ul{
+		list-style: none;
+	}
+	.fl{
+		float:left;
+	}
+	.fr{
+		float:right;
+	}
+	.container{
+		width:890px;
+		font-size: 12px;
+		margin-left:60px;
+		background: #fff;
+	}
+	.clear:after {
+  		display: block;
+  		content: '';
+  		clear: both;
+  		visibility: hidden; 
+  	}
+  	.clear{
+  		zoom:1;
+  	}
+  	.colorRed{
+  		color:#c9161d;
+  	}
+	/*顶部样式*/
+	.head{
+		/*width:100%;*/
+		width:1280px;
+		height:56px;
+		line-height:56px;
+		background: #228abf;
+		overflow: hidden;
+	}
+	.icon{
+		margin-left: 50px;
+		margin-top:10px;
+	}
+	.iconA{
+		width:36px;
+		height:36px;
+		background: #fff;
+	}
+	.iconB{
+		width:18px;
+		height:18px;
+		background: #228abf;
+		position:relative;
+		left:18px;
+		top:18px;
+	}
+	.iconC{
+		width:14px;
+		height:14px;
+		background: #fff;
+		position:relative;
+		left:4px;
+		top:4px;
+	}
+	.search input{
+		width:304px;
+		height:26px;
+		padding-left: 10px;
+		background: #fff;
+		border-radius: 20px;
+		outline: none;
+		vertical-align: middle;
+	}
+	.login{
+		margin-right:94px;
+		margin-left:10px;
+		font-size: 14px;
+	}
+	/*左侧样式*/
+	.nav{
+		width:216px;
+		height:1210px;
+		font-weight: 700;
+		padding-left:44px;
+		background: #2a2e3d;
+		font-size: 12px;
+	}
+	.person{
+		height:150px;
+	}
+	.headPortA{
+		width:56px;
+		height:56px;
+		border:1px solid #b9babe;
+		border-radius: 50%;
+		margin-top: 18px;
+		margin-right: 18px;
+	}
+	.headPortB{
+		width:46px;
+		height:46px;
+		margin-left:5px;
+		margin-top:5px;
+		background: #b9babe;
+		border-radius: 50%;
+	}
+	.personInfo{
+		color:#e2e2e2;
+		height:98px;
+		line-height:98px;
+	}
+	.personColl{
+		color:#6e8096;
+		font-weight: 700;
+	}
+	.personColl span{
+		float:left;
+		margin-left: 30px;
+	}
+	.personColl span:first-child {
+		margin-left: 10px;
+	}
+	.personColl span:nth-child(2){
+		font-size: 26px;
+		line-height:26px;
+	}
+	.report{
+		margin-left: -44px;
+		padding-left: 44px;
+		margin-bottom:16px;
+		line-height:30px;
+		color:#fff;
+		background: #393d4e;
+	}
+	.report>p{
+		color:#6e8096;
+		margin-left: 22px;
+	}
+	.report>p:nth-child(2){
+		color:#fff;
+	}
+	.report span{
+		display: block;
+		margin-left: 34px;
+	}
+	.report span:nth-child(2){
+		color:#6e8096;
+	}
+	.collection,.share,.pictures,.record,.account{
+		height:48px;
+		color:#6e8096;
+	}
+	/*右侧栏*/
+	.main{
+		width:1020px;
+		height:1210px;
+		background: #eee;
+		margin-right: -17px;
+	}
+	.mainHead{
+		width:100%;
+		line-height:30px;
+		background: #fff;
+		color:#aaa;
+	}
+	.mainHead a{
+		color:#aaa;
+	}
+	.mainHead a:hover{
+		color:#6898c2;
+	}
+	.mainHead p{
+		margin-left: 30px;
+	}
+	/*查询项*/
+	.query{
+		padding-top: 16px;
+		height: 68px;
+		width:858px;
+		margin-top:20px;
+		padding-left: 30px;
+		border:1px solid #cacdd1;
+		color:#b7b7b7;
+	}
+	.query select,input{
+		font-size: 12px;
+		padding:2px;
+		margin-left: 16px;
+		margin-bottom:6px;
+		outline: none;
+	}
+	.queryOption select{
+		width:70px;
+	}
+	.counterparty{
+		margin-left:38px;
+		width:188px;
+	}
+	.counterparty select{
+		width:120px;
+	}
+	.queryDetailT input{
+		border-top:1px solid black;
+		width:112px;
+		margin-right: 10px;
+	}
+	.queryDetailT select{
+		width:70px;
+	}
+	.queryDetailB select:nth-child(1){
+		width:70px;
+		margin-right: 10px;
+	}
+	.queryDetailB select:nth-child(2){
+		width:120px;
+	}
+	.queryBtn{
+		margin-left: 10px;
+		margin-top: 12px;
+	}
+	.queryBtn input {
+		width:50px;
+		height:26px;
+		color:#fff;
+		background: #388ac1;
+		border:none;
+		cursor:pointer;
+	}
+	/*交易金额*/
+	.price{
+		margin-top: 10px;
+		background: #eee;
+	}
+	.price>div{
+		height:63px;
+		line-height:32px;
+		text-align: center;
+		width:109px;
+		float:left;
+		background: #fff;
+		margin-right: 6px;
+		border-left:1px solid #cacdd1;
+		border-top:1px solid #cacdd1;
+	}
+	.price>div:last-child{
+		width:119px;
+		margin-right: 0px;
+		line-height:64px;
+	}
+	.price .arrowL{
+		width:30px;
+		line-height:64px;
+	}
+	.price .arrowL a{
+		font-size: 20px;
+		color:#afafaf;
+	}
+	.price .arrowR{
+		width:30px;
+		line-height:64px;
+	}
+	.price .arrowR a{
+		font-size: 20px;
+		color:#afafaf;
+	}
+	.price .num{
+		font-size: 18px;
+		color:#ed6f11;
+	}
+	.price .symbol{
+		font-size: 14px;
+		color:#afafaf;
+	}
+	.price .boxBg{
+		background: #4388c8;
+	}
+	.price .box{
+		height:100%;
+		overflow: hidden;
+		background: #fff;
+	}
+	.price .box:hover{
+		height:60px;
+		margin-top: 4px;
+	}
+	.historyIcon{
+		width:28px;
+		height:24px;
+		border:2px solid #388ac1;
+		margin: 18px 11px 0 18px;
+	}
+	.historyIcon div{
+		width:5px;
+		height:5px;
+		float:left;
+		margin-left: 3px;
+		margin-top: 4px;
+		background: #388ac1;
+	}
+	/*成交量*/
+	.volume {
+		margin-top: 22px;
+		background: #eee;
+	}
+	.volume p{
+		background: #eee;
+		margin-bottom:6px;
+	}
+	.volumeA,.volumeB,.volumeC,.volumeD{
+		width:197px;
+		height:70px;
+		line-height:35px;
+		margin-right: 28px;
+		border:1px solid #cacdd1;
+		border-left:4px solid #43b29d;
+		background: #fff;
+	}
+	.volumeB{
+		border-left:4px solid #388ac1;
+	}
+	.volumeC{
+		border-left:4px solid #d04a36;
+	}
+	.volumeD{
+		border-left:4px solid #e2cd47;
+		margin-right: -2px;
+	}
+	.green,.blue,.red,.yellow{
+		width:60px;
+		height:46px;
+		background: #43b29d;
+		margin-top:12px;
+		float:left;
+	}
+	.blue{
+		background: #388ac1;
+	}
+	.red{
+		background: #d04a36;
+	}
+	.yellow{
+		background: #e2cd47;
+	}
+	.volumeAtext,.volumeBtext,.volumeCtext,.volumeDtext{
+		float:left;
+		width:36px;
+		margin-left: 8px;
+		margin-right:78px;
+	}
+	/*第一组项目*/
+	.project{
+		margin-top: 14px;
+		margin-bottom:9px;
+		background: #eee;
+	}
+	.projectL{
+		width:530px;
+		background: #fff;
+		border:1px solid #cacdd1;
+		border-radius: 6px;
+	}
+	.projectLhead{
+		height:38px;
+		line-height:38px;
+		background: #f4f5f6;
+		text-indent: 20px;
+		border:1px solid #e7e8eb;
+		color:#b7b7b7;
+	}
+	.projectLmain{
+		margin:12px auto 24px 20px;
+	}
+	.projectLmainNav ul li{
+		float:left;
+		height:28px;
+		line-height:28px;
+		text-align: center;
+		width:85px;
+		margin-right: 5px;
+		background: #ededf0;
+		border-top-left-radius: 4px;
+		border-top-right-radius: 4px;
+		color:#535353;
+	}
+	.projectLmainNav ul li:first-child{
+		background: #fff;
+		margin-bottom:-1px;
+		width:83px;
+		border-left: 1px solid #cacdd1;
+		border-top: 1px solid #cacdd1;
+		border-right: 1px solid #cacdd1;
+	}
+	.projectLmainItem{
+		width:488px;
+		border:1px solid #cacdd1;
+		border-radius:4px;
+	}
+	.projectLmainItem table{
+		margin:28px auto 36px 36px;
+		border-collapse: collapse;
+		border:1px solid #ddd;
+	}
+	.projectLmainItem table td{
+		border:1px solid #ddd;
+		width:100px;
+		height:28px;
+		color:#bbb;
+		text-align:center;
+	}
+	.projectR{
+		width:350px;
+		background: #fff;
+		border:1px solid #cacdd1;
+		border-radius: 6px;
+		margin-left:6px;
+	}
+	.projectRhead{
+		height:38px;
+		line-height:38px;
+		background: #f4f5f6;
+		text-indent: 20px;
+		border:1px solid #e7e8eb;
+		color:#b7b7b7;
+	}
+	.projectRmain{
+		padding-left: 34px;
+	}
+	.projectRtitle{
+		height:40px;
+		margin-top: 18px;
+		width:280px;
+		border-bottom:1px solid #e8e8e8;
+	}
+	.projectRtitle p{
+		height:20px;
+		text-indent:16px;
+	}
+	.headers{
+		color:#c3c2c2;
+	}
+	.content{
+		color:#535353;
+	}
+	.projectRdetil{
+		height:43px;
+		line-height:20px;
+		border-bottom:1px solid #e8e8e8;
+	}
+	.projectRprice{
+		width:94px;
+		height:100%;
+		text-indent: 16px;
+		border-right: 1px solid #e8e8e8;
+	}
+	.projectRperson{
+		text-indent: 11px;
+	}
+	.projectRdesc{
+		width:280px;
+		height:145px;
+		line-height:20px;
+		border-bottom:1px solid #e8e8e8;
+	}
+	.projectRdesc p{
+		text-indent: 16px;
+	}
+	.projectRform{
+		
+	}
+	.projectRform input:first-child{
+		margin:12px 8px 31px 0px;
+		float:left;
+	}
+	.projectRform label{
+		margin-top: 10px;
+		float:left;
+	}
+	.projectRform input:last-child{
+		float:left;
+		width:50px;
+		height:26px;
+		background: #388ac1;
+		color:#fff;
+		border:none;
+		margin-top: 6px;
+		margin-left: 137px;
+	}
+	/*日历*/
+	.calendar{
+		width:350px;
+		background: #fff;
+		border:1px solid #cacdd1;
+		border-radius: 6px;
+	}
+	.calendarHead{
+		color:#cacaca;
+		height:38px;
+		line-height:38px;
+		background: #f4f5f6;
+		text-indent: 20px;
+		border:1px solid #e7e8eb;
+	}
+	.calendarItem{
+		width:310px;
+		margin-left: 20px;
+		height:41px;
+		line-height:41px;
+	}
+	.calendarItem div{
+		height:20px;
+		width:62px;
+		text-align: center;
+		line-height: 20px;
+		display: inline-block;
+		border:1px solid #cbcbcb;
+		margin-left: -1px;
+		color:#636363;
+	}
+	.calendarItem select{
+		height:22px;
+		border:1px solid #cbcbcb;
+		margin-right: 2px;
+		color:#636363;
+	}
+	.calendarItem select:nth-child(2){
+		width:84px;
+	}
+	.calendarWeek{
+		width:310px;
+		height:29px;
+		line-height:29px;
+		border-top:1px solid #a9cfec;
+		border-bottom:1px solid #ececed;
+		margin-left: 20px;
+	}
+	.calendarWeek ul li{
+		width:44px;
+		text-align: center;
+		float:left;
+		color:#636363;
+	}
+	.calendarWeekday{
+		margin-left: 20px;
+		width:310px;
+	}
+	.calendarWeekday ul li{
+		width:44px;
+		height:44px;
+		color:#494949;
+		margin-top: 2px;
+		margin-bottom: 2px;
+		float:left;
+		text-align: center;
+	}
+	/*汽车品牌榜*/
+	.carList{
+		width:528px;
+		margin-left: 8px;
+		background: #fff;
+		border:1px solid #cacdd1;
+		border-radius: 6px;
+	}
+	.carListHead{
+		color:#cacaca;
+		height:38px;
+		line-height:38px;
+		background: #f4f5f6;
+		text-indent: 20px;
+		border:1px solid #e7e8eb;
+	}
+	.carListMain table{
+		width:448px;
+		border-collapse: collapse;
+		border:1px solid #ddd;
+		margin:18px auto 28px 40px;
+	}
+	.carListMain table td{
+		height:23px;
+		text-align: center;
+		border:1px solid #ddd;
+		color:#231815;
+	}
+	.carListMain table tr td:first-child{
+		width:66px;
+	}
+	.carListMain table tr td:nth-child(2){
+		width:90px;
+	}
+	.carListMain table td span{
+		float:left;
+		margin-left: 34px;
+		margin-right:20px;
+	}
+	.carListMain table td div{
+		width:170px;
+		height: 4px;
+		float:left;
+		margin-top: 6px;
+		background: #dcdcdc;
+	}
+	.carListMain table tr td div div{
+		margin-top:0px;
+	}
+	.carListMain table tr:nth-child(2) td div div{
+		width:141px;
+		background: #ed6e52;
+	}
+	.carListMain table tr:nth-child(3) td div div{
+		width:122px;
+		background: #ef8150;
+	}
+	.carListMain table tr:nth-child(4) td div div{
+		width:104px;
+		background: #f19e4f;
+	}
+	.carListMain table tr:nth-child(5) td div div{
+		width:98px;
+		background: #7ecaf0;
+	}
+	.carListMain table tr:nth-child(6) td div div{
+		width:86px;
+		background: #7ecaf0;
+	}
+	.carListMain table tr:nth-child(7) td div div{
+		width:81px;
+		background: #7ecaf0;
+	}
+	.carListMain table tr:nth-child(8) td div div{
+		width:74px;
+		background: #7ecaf0;
+	}
+	.carListMain table tr:nth-child(9) td div div{
+		width:65px;
+		background: #7ecaf0;
+	}
+	.carListMain table tr:nth-child(10) td div div{
+		width:60px;
+		background: #7ecaf0;
+	}
+	.carListMain table tr:nth-child(11) td div div{
+		width:54px;
+		background: #7ecaf0;
+	}	
+	</style>
+</head>
+<body>
+<div class="page">
+	<!-- 顶部 -->
+	<div class="head">
+		<div class="icon fl">
+			<div class="iconA">
+				<div class="iconB">
+					<div class="iconC"></div>
+				</div>
+			</div>
+		</div>
+		<div class="login fr"><a href="#"><span><b>★</b> 登录</span></a></div>
+		<div class="search fr"><input type="text"></div>
+	</div>
+	<!-- 左侧栏 -->
+	<div class="nav fl">
+		<div class="person">
+			<div class="personInfo">
+				<div class="headPortA fl">
+					<div class="headPortB"></div>
+				</div>
+				<span class="fl">ABC123</span>
+			</div>
+			<div class="personColl">
+				<span>110<br/>收藏</span>
+				<span>|</span>
+				<span>313<br/>粉丝</span>
+			</div>
+		</div>
+		<div class="report">★ 个人报表
+			<p> > 匚 文件一</p>
+			<p> > 匚 文件二
+				<span> 匚 文档1</span>
+				<span> 匚 文档2</span>
+			</p>
+			<p> > 匚 文件三</p>
+		</div>
+		<div class="collection">★ 个人收藏</div>
+		<div class="share">★ 我的分享</div>
+		<div class="pictures">★ 图库</div>
+		<div class="record">★ 成长记录</div>
+		<div class="account">★ 账户信息</div>
+	</div>
+	<!-- 右侧栏 -->
+	<div class="main fr">
+		<div class="mainHead">
+			<p>
+				<a href="#"><span>c站</span></a>
+				/
+				<a href="#"><span>个人报表</span></a>
+				/
+				<a href="#"><span>文件一</span></a>
+				/
+				<a href="#"><span>文档一</span></a>
+			</p>
+		</div>
+		<!-- 查询项 -->
+		<div class="query container">
+			<div class="queryOption fl">
+				查询项<select><option value="">第一项</option></select>
+			</div>
+			<div class="counterparty fl">
+				买方<select><option value="">小A</option></select>
+				<br/>
+				卖方<select><option value="">小C</option></select>
+			</div>
+			<div class="queryDetail fl">
+				<div class="queryDetailT">
+					日期<input type="text" value="2016-01-07">
+					总耗时<select><option value="">8天</option></select>
+				</div>
+				<div class="queryDetailB">
+					人数<select><option value="">10人</option></select>
+					成交项<select><option value="">10项</option></select>
+				</div>	
+			</div>
+			<div class="queryBtn fl">
+				<input type="button" value="搜索">
+			</div>
+		</div>
+		<!-- 交易金额 -->
+		<div class="price container clear">
+				<div class="arrowL"><a href="#"><</a></div>
+				<div class="boxBg">
+					<div class="box">
+						<p class="priceTime"><span>10:00 am</span></p>
+						<p class="priceNum"><span class="symbol">￥</span><span class="num">1200</span></p>
+					</div>
+				</div>
+				<div class="boxBg">
+					<div class="box">
+						<p class="priceTime"><span>11:00 am</span></p>
+						<p class="priceNum"><span class="symbol">￥</span><span class="num">1300</span></p>
+					</div>
+				</div>
+				<div class="boxBg">
+					<div class="box">
+						<p class="priceTime"><span>12:00 am</span></p>
+						<p class="priceNum"><span class="symbol">￥</span><span class="num">1200</span></p>
+					</div>
+				</div>
+				<div class="boxBg">
+					<div class="box">
+						<p class="priceTime"><span>01:00 am</span></p>
+						<p class="priceNum"><span class="symbol">￥</span><span class="num">1400</span></p>
+					</div>
+				</div>
+				<div class="boxBg">
+					<div class="box">
+						<p class="priceTime"><span>02:00 am</span></p>
+						<p class="priceNum"><span class="symbol">￥</span><span class="num">1500</span></p>
+					</div>
+				</div>
+				<div class="boxBg">
+					<div class="box">
+						<p class="priceTime"><span>03:00 am</span></p>
+						<p class="priceNum"><span class="symbol">￥</span><span class="num">1800</span></p>
+					</div>
+				</div>
+				<div class="arrowR"><a href="#">></a></div>
+				<div class="history">
+					<div class="historyIcon fl">
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+					<span class="fl">历史查询</span>
+				</div>
+		</div>
+		<!-- 交易量 -->
+		<div class="volume container clear">
+			<p>2016年4月份统计</p>
+			<div class="volumeA fl">
+				<div class="volumeAtext">
+					<span>133311</span>
+					<span>成交量</span>
+				</div>
+				<div class="green"></div>
+			</div>
+			<div class="volumeB fl">
+				<div class="volumeBtext">
+					<span>133311</span>
+					<span>成交量</span>
+				</div>
+				<div class="blue"></div>
+			</div>
+			<div class="volumeC fl">
+				<div class="volumeCtext">
+					<span>133311</span>
+					<span>成交量</span>
+				</div>
+				<div class="red"></div>
+			</div>
+			<div class="volumeD fl">
+				<div class="volumeDtext">
+					<span>133311</span>
+					<span>成交量</span>
+				</div>
+				<div class="yellow"></div>
+			</div>
+		</div>
+		<!-- 第一组项目 -->
+		<div class="project container clear">
+			<div class="projectL fl">
+				<div class="projectLhead">第一组项目</div>
+				<div class="projectLmain">
+					<div class="projectLmainNav clear">
+						<ul>
+							<li>项目一</li>
+							<li>项目二</li>
+							<li>项目三</li>
+							<li>项目四</li>
+							<li>项目五</li>
+						</ul>
+					</div>
+					<div class="projectLmainItem">
+						<table>
+							<tr>
+								<td style="background:#ededf0";>购买材料一</td>
+								<td>购买材料一</td>
+								<td>购买材料一</td>
+								<td>购买材料一</td>
+							</tr>
+							<tr>
+								<td>购买材料二</td>
+								<td>购买材料二</td>
+								<td>购买材料二</td>
+								<td>购买材料二</td>
+							</tr>
+							<tr>
+								<td>购买材料三</td>
+								<td>购买材料三</td>
+								<td>购买材料三</td>
+								<td>购买材料三</td>
+							</tr>
+							<tr>
+								<td>购买材料四</td>
+								<td>购买材料四</td>
+								<td>购买材料四</td>
+								<td>购买材料四</td>
+							</tr>
+							<tr>
+								<td>购买材料五</td>
+								<td>购买材料五</td>
+								<td>购买材料五</td>
+								<td>购买材料五</td>
+							</tr>
+							<tr>
+								<td>购买材料六</td>
+								<td>购买材料六</td>
+								<td>购买材料六</td>
+								<td>购买材料六</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="projectR fl">
+				<div class="projectRhead">第一组项目</div>
+				<div class="projectRmain">
+					<div class="projectRtitle">
+						<p class="headers">标题</p>
+						<p class="content">项目报表三</p>
+					</div>
+					<div class="projectRdetil">
+						<div class="projectRprice fl">
+							<p class="headers">价格</p>
+							<p class="content">￥158</p>
+						</div>
+						<div class="projectRperson fl">
+							<p class="headers">负责人</p>
+							<p class="content">小A</p>
+						</div>	
+					</div>
+					<div class="projectRdesc">
+						<p class="headers">详细描述</p>
+						<p class="content">该项目目前负责人是......</p>
+					</div>
+					<div class="projectRform">
+						<input type="checkbox" id="agree" checked>
+						<label for="agree">遵守保密协议</label>
+						<input type="button" value="搜索">
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 日历和榜单 -->
+		<div class="container">
+			<div class="calendar fl">
+				<div class="calendarHead">日历</div>
+				<div class="calendarItem">
+					<select><option value="year">2016年</option></select>
+					<select><option value="month">4月</option></select>
+					<select><option value="day">标注日期</option></select>
+					<div>返回今天</div>
+				</div>
+				<div class="calendarWeek">
+					<ul>
+						<li>一</li>
+						<li>二</li>
+						<li>三</li>
+						<li>四</li>
+						<li>五</li>
+						<li>六</li>
+						<li>日</li>
+					</ul>
+				</div>
+				<div class="calendarWeekday">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li><span>1</span><br/><span class="colorRed">愚人节</span></li>
+						<li><span class="colorRed">2</span><br/><span>廿五</span></li>
+						<li><span class="colorRed">3</span><br/><span>廿六</span></li>
+						<li><span>4</span><br/><span>廿七</span></li>
+						<li><span>5</span><br/><span class="colorRed">清明</span></li>
+						<li><span>6</span><br/><span>廿九</span></li>
+						<li><span>7</span><br/><span>三月</span></li>
+						<li><span>8</span><br/><span>初二</span></li>
+						<li><span class="colorRed">9</span><br/><span>初三</span></li>
+						<li><span class="colorRed">10</span><br/><span>初四</span></li>
+						<li><span>11</span><br/><span>初五</span></li>
+						<li><span>12</span><br/><span>初六</span></li>
+						<li><span>13</span><br/><span>初七</span></li>
+						<li><span>14</span><br/><span>初八</span></li>
+						<li><span>15</span><br/><span>初九</span></li>
+						<li><span class="colorRed">16</span><br/><span>初十</span></li>
+						<li><span class="colorRed">17</span><br/><span>十一</span></li>
+						<li><span>18</span><br/><span>十二</span></li>
+						<li><span>19</span><br/><span>十三</span></li>
+						<li><span>20</span><br/><span>十四</span></li>
+						<li><span>21</span><br/><span>十五</span></li>
+						<li><span>22</span><br/><span>十六</span></li>
+						<li><span class="colorRed">23</span><br/><span>十七</span></li>
+						<li><span class="colorRed">24</span><br/><span>十八</span></li>
+						<li><span>25</span><br/><span>十九</span></li>
+						<li><span>26</span><br/><span>廿十</span></li>
+						<li><span>27</span><br/><span>廿一</span></li>
+						<li><span>28</span><br/><span>廿二</span></li>
+						<li><span>29</span><br/><span>廿三</span></li>
+						<li><span class="colorRed">30</span><br/><span>廿四</span></li>
+						<li></li>
+					</ul>
+				</div>
+			</div>
+			<div class="carList fl">
+				<div class="carListHead">汽车行业品牌榜</div>
+				<div class="carListMain">
+					<table>
+						<tr>
+							<td>排名</td>
+							<td>品牌</td>
+							<td>搜索指数</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>大众</td>
+							<td><span>48912001</span><div><div></div></div></td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>丰田</td>
+							<td><span>29307333</span><div><div></div></div></td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>奥迪</td>
+							<td><span>23139070</span><div><div></div></div></td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>本田</td>
+							<td><span>22885564</span><div><div></div></div></td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>福特</td>
+							<td><span>22324792</span><div><div></div></div></td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>宝马</td>
+							<td><span>21444077</span><div><div></div></div></td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>现代</td>
+							<td><span>20114969</span><div><div></div></div></td>
+						</tr>
+						<tr>
+							<td>8</td>
+							<td>起亚</td>
+							<td><span>19251680</span><div><div></div></div></td>
+						</tr>
+						<tr>
+							<td>9</td>
+							<td>奔驰</td>
+							<td><span>19172837</span><div><div></div></div></td>
+						</tr>
+						<tr>
+							<td>10</td>
+							<td>别克</td>
+							<td><span>18544027</span><div><div></div></div></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>	
+</body>
+</html>

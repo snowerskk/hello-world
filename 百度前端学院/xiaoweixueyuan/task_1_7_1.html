@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task_1_7_1</title>
+	<style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	a{
+		text-decoration: none;
+	}
+	header{
+		height:57px;
+		line-height: 57px;
+		background: url('images/task_1_7_1.png') no-repeat 59px;
+	}
+	header span{
+		font-size: 20px;
+		margin-left:100px;
+		font-weight: bold;
+		font-family: 黑体;
+	}
+	nav{
+		float:right;
+		font-size: 14px;
+		font-weight: bold;
+	}
+	nav a{
+		margin-right: 41px;
+		font-family: 宋体;
+		color:#b5b7bb;
+	}
+	nav img{margin-right: -5px; margin-bottom: -3px;}
+	.a4{margin-right: 28px;}
+	.line1{
+		width:64px;
+		height:4px;
+		background: #e74f4d;
+		margin-left: 680px;
+	}
+	.login{
+		color: #e74f4d;
+	}
+	.main1{
+		width:1280px;
+		height:623px;
+		background: url('images/task_1_7_3.png') no-repeat;
+		padding-top: 230px;
+		margin-top: 4px;
+	}
+	.main1_p1{
+		font-size: 50px;
+		color: white;
+		font-family: 微软雅黑;
+		margin-left:117px;
+	}
+	.main1_p2{
+		font-size: 20px;
+		color:white;
+		margin-left:124px;
+		margin-top: 15px;
+	}
+	.main1_a1{
+		width:332px;
+		height:65px;
+		line-height: 65px;
+		text-align: center;
+		background: #e8504e;
+		font-size: 30px;
+		margin-left: 124px;
+		margin-top: 68px;
+	}
+	.main1_a1 a{color:white;}
+	.main2{
+		height:250px;
+	}
+	.main2_img1{
+		margin-left: 145px;
+		margin-top: 45px;
+	}
+	.main2_img2{
+		margin-left: 290px;
+	}
+	.main2_img3{
+		margin-left: 260px;
+	}
+	.main2_img4{
+		margin-left: 266px;
+	}
+	.main2_a1{
+		margin-left: 89px;
+		margin-top: 40px;
+		font-size: 13px;
+		width:145px;
+		display: inline-block;
+		text-align: center;
+		color:#8d8d8d;
+	}
+	.main2_a2{
+		margin-left: 94px;
+		margin-top: 40px;
+		font-size: 13px;
+		width:145px;
+		display: inline-block;
+		text-align: center;
+		color:#8d8d8d;
+	}
+	.main2_a3{
+		margin-left: 70px;
+		margin-top: 40px;
+		font-size: 13px;
+		width:145px;
+		display: inline-block;
+		text-align: center;
+		color:#8d8d8d;
+	}
+	.main2_a4{
+		margin-left: 72px;
+		margin-top: 40px;
+		font-size: 13px;
+		width:145px;
+		display: inline-block;
+		text-align: center;
+		color:#8d8d8d;
+	}
+	.bar1{
+		display: inline-block;
+		margin-left: 80px;
+		margin-bottom: -20px;
+	}
+	.bar2{
+		display: inline-block;
+		margin-left: 88px;
+		margin-bottom: -20px;
+	}
+	.bar3{
+		display: inline-block;
+		margin-left: 92px;
+		margin-bottom: -20px;
+	}
+	.bar1,.bar2,.bar3{
+		width:3px;
+		height:51px;
+		background: #bbb;
+	}
+	.main3{
+		height:360px;
+		background: #ededed;
+		font-size: 50px;
+		color:#a1a1a1;
+		text-align: center;
+	}
+	.main3 img{
+		margin-top: 90px;
+		margin-bottom: 30px;
+	}
+	.main4{
+		height:288px;
+		background: url('images/task_1_7_9.png') no-repeat;
+		text-align: center;
+		font-size: 12px;
+		color:white;
+		padding-top: 52px;
+	}
+	.main4_p1{
+		font-size: 22px;
+		color:white;
+	}
+	.line2{
+		width:32px;
+		height:2px;
+		background: white;
+		margin:10px auto 20px auto;
+	}
+	.line3{
+		width:32px;
+		height:2px;
+		background: white;
+		margin:20px auto 30px auto;
+	}
+	.line4{
+		width:32px;
+		height:2px;
+		background: black;
+		margin:20px auto 30px auto;
+	}
+	.line5{
+		width:32px;
+		height:2px;
+		background: #ea6563;
+		margin:10px auto 15px auto;
+	}
+	.main4_p2{
+		margin-bottom: 54px;
+	}
+	.form1 select,input{
+		width:235px;
+		height:35px;
+		margin-right: 28px;
+	}
+	.form1 select{
+		background: white url('images/task_1_7_10.png') no-repeat;
+	}
+	.form1 input{
+		background: #be4e48;
+		color:white;
+		border:1px solid #be4e48;
+	}
+	.page{
+		width:233px;
+		height:170px;
+		color:#89898a;
+		border:1px solid #be4e48;
+		background: #e3e2e4;
+		font-size: 12px;
+		line-height: 26px;
+		text-align: left;
+		margin-left: 367px;
+		margin-top: -1px;
+	}
+	.page p{
+		padding-left: 32px;
+	}
+	.page_p1{
+		background: #be4e48;
+		color:white;
+	}
+	.province{
+		border:1px solid #bf4f49;
+	}
+	.main5{
+		height:505px;
+		background: #f7f7f7;
+		padding-left: 145px;
+		padding-top: 125px;
+	}
+	.main5_bj{
+		float:left;
+		text-align: center;
+		margin-right: 36px;	
+	}
+	.main5_bj img{
+		background: white;
+		padding:12px 8px;
+		border-left: 1px solid #dadada;
+		border-top: 1px solid #dadada;
+		border-right: 1px solid #dadada;
+	}
+	.main5_bj_a1{
+		font-size: 14px;
+		line-height: 28px;
+		color:black;
+		font-family:微软雅黑;
+	}
+	.main5_bj_a2{
+		font-size: 12px;
+		line-height: 24px;
+		color:#9f9f9f;
+		font-family:微软雅黑;
+	}
+	.main5_sh{
+		float:left;
+		text-align: center;
+		margin-right: 36px;
+	}
+	.main5_sh img{
+		background: white;
+		padding:12px 8px;
+		border: 1px solid #dadada;
+	}
+	.main5_sh_a1{
+		font-size: 22px;
+		font-family:微软雅黑;
+	}
+	.main5_sh_a1 span{
+		margin-right: 38px;
+	}
+	.main5_sz{
+		float:left;
+		text-align: center;
+		margin-right: 36px;
+	}
+	.main5_sz img{
+		background: white;
+		padding:12px 8px;
+		border-left: 1px solid #dadada;
+		border-top: 1px solid #dadada;
+		border-right: 1px solid #dadada;
+	}
+	.main5_hk{
+		float:left;
+		text-align: center;
+	}
+	.main5_hk img{
+		background: white;
+		padding:12px 8px;
+		border-left: 1px solid #dadada;
+		border-top: 1px solid #dadada;
+		border-right: 1px solid #dadada;
+	}
+	.main6_l{
+		width:850px;
+		height:567px;
+		background: url('images/task_1_7_11.png') no-repeat;
+		text-align: center;
+		float:left;
+		position:relative;
+	}
+	.main6_l_p1{
+		font-size:50px;
+		color:white;
+		padding-top: 122px;
+		margin-bottom: -30px;
+	}
+	.main6_l_p2{
+		font-size: 155px;
+		color:white;
+		font-family: 微软雅黑;
+	}
+	.main6_l_p3{
+		font-size: 22px;
+		color:white;
+		margin-top: -10px;
+	}
+	.main6_l_p4{
+		font-size: 22px;
+		color:white;
+		font-family: 新宋体;
+		font-weight: bold;
+		margin-top: 15px;
+		margin-left: -10px;
+	}
+	.main6_l img{
+		position:absolute;
+		right:-1px;
+		top:269px;
+	}
+	.mian6_r{
+		width:320px;
+		height:402px;
+		padding-top: 165px;
+		margin-left: 70px;
+		float:left;
+	}
+	.main7{
+		height:520px;
+	}
+	.main7_l{
+		width:420px;
+		height:520px;
+		line-height: 30px;
+		background: #e74f4d;
+		text-align: center;
+		float:left;
+	}
+	.main7_m{
+		width:420px;
+		height:520px;
+		line-height: 30px;
+		text-align: center;
+		float:left;
+	}
+	.main7_r{
+		width:413px;
+		height:520px;
+		background: url('images/task_1_7_13.png');
+		position: relative;
+		float:right;
+	}
+	.mian6_r_span1{
+		font-size: 21px;
+		margin-left: 90px;
+	}
+	.mian6_r_img1{
+		margin-bottom: -3px;
+		margin-left: -6px;
+		margin-right: -6px;
+	}
+	.mian6_r_span2{
+		font-size: 20px;
+		color:#e74f4d;
+	}
+	.mian6_r_p1{
+		font-size: 12px;
+		line-height: 32px;
+		color:#c9c9c9;
+		margin-top: 12px;
+	}
+	.mian6_r_p2{
+		width:103px;
+		height:31px;
+		line-height: 31px;
+		font-size: 12px;
+		border:1px solid #e4666a;
+		color:#e4666a;
+		display: inline-block;
+		margin-left: 90px;
+		margin-top: 50px;
+		text-align: center;
+	}
+	.main7_l_p1{
+		font-size: 20px;
+		color:white;
+		margin-top: 172px;
+	}
+	.main7_l_p2{
+		font-size: 20px;
+		color:white;
+	}
+	.main7_l_p3{
+		font-size: 20px;
+		color:black;
+		margin-top: 172px;
+	}
+	.main7_l_p4{
+		font-size: 20px;
+		color:black;
+	}
+	.main7_l_a1{
+		display: inline-block;
+		width:167px;
+		height:41px;
+		line-height: 41px;
+		font-size: 20px;
+		color:white;
+		border:1px solid white;
+	}
+	.main7_m_a1{
+		display: inline-block;
+		width:167px;
+		height:41px;
+		line-height: 41px;
+		font-size: 20px;
+		color:#e74f4d;
+		border:1px solid #e74f4d;
+	}
+	.main7_r_img1{
+		position:absolute;
+		left:-1px;
+		top:269px;
+	}
+	.main8_t{
+		height:300px;
+		text-align: center;
+		padding-top: 700px;
+	}
+	.main8_t_p1{
+		color:#323333;
+		font-size: 20px;
+		font-family: 黑体;
+	}
+	.main8_t_p2{
+		font-size: 12px;
+		color:#b7b7b7;
+		font-family: 黑体;
+	}
+	.main8_l{
+		display: inline-block;
+		width:290px;
+		height: 450px;
+		margin-left: 138px;
+		margin-top: -110px;
+	}
+	.main8_l_p1{
+		font-size: 14px;
+		color:#807c7c;
+		font-family: 黑体;
+		margin-bottom: 18px;
+		font-weight: bold;
+	}
+	.main8_l_p2{
+		font-size: 12px;
+		color:#a5a3a2;
+		font-family: 黑体;
+		line-height: 22px;
+	}
+	.main8_l_p3{
+		font-size: 5px;
+		color:#959291;
+		margin-left: 265px;
+		font-family: Arial;
+	}
+	.main8{
+		height:750px;
+	}
+	.main8_r{
+		width:640px;
+		height:450px;
+		position:absolute;
+		right:150px;
+		top:3880px;
+	}
+	.main8_r table{
+		width:640px;
+		height:282px;
+		background: #ededee;
+		border-collapse: collapse;
+		font-size: 11px;
+		color:#787474;
+		font-family: 黑体;
+	}
+	.main8_r table td{
+		width:290px;
+		height:40px;
+		padding-left: 20px;
+		border-left: 20px solid white;
+		border-right: 20px solid white;
+		border-top: 16px solid white;
+		border-bottom: 16px solid white;
+		
+	}
+	.main8_r input{
+		font-size: 14px;
+		font-family: 黑体;
+		border:none;
+		background: none;
+	}
+	.main8_r_btn1{
+		text-align: center;
+	}
+	.main9{
+		height:268px;
+		background: #32363e;
+		color:white;
+		text-align: center;
+		padding-top: 92px;
+	}
+	.main9 a{
+		margin-left: 8px;
+		margin-right: 12px;
+	}
+	.main9_p1{
+		font-size: 21px;
+		font-family: 黑体;
+		margin-bottom: 5px;
+	}
+	.main9_p2{
+		font-size: 10px;
+		font-family: 黑体;
+		line-height: 19px;
+		color:#f5f5f5;
+	}
+	.main9_p3{
+		font-size: 10px;
+		font-family: 黑体;
+		line-height: 19px;
+		color:#f5f5f5;
+	}
+	.main9_txt1{
+		width:430px;
+		height:40px;
+		color:#aaa;
+		padding-left: 10px;
+		margin:26px -12px 38px 0;
+		font-size: 14px;
+	}
+	.main9_btn1{
+		width:80px;
+		height:44px;
+		background: #6f7178;
+		color:#e7e7e8;
+		font-size: 15px;
+		font-weight: bold;
+		border:1px solid #6f7278;
+		margin-left:4px;
+	}
+	footer{
+		height:30px;
+		background: #303039;
+		font-size: 12px;
+		padding-top: 30px;
+	}
+	footer span{
+		margin-left: 100px;
+		color:#f5f5f5;
+		font-family: 黑体;
+	}
+	footer a{
+		color:#f5f5f5;
+		margin-left: 1010px;
+		font-family: 黑体;
+	}
+	</style>
+</head>
+<body>
+<header>
+	<span>新世界</span>
+	<nav>
+		<a class="a1" href="#">首页</a>
+		<a href="#">最新活动</a>
+		<a href="#">项目介绍</a>
+		<a href="#">爱心介绍</a>
+		<a class="a4" href="#">关于我们</a>
+		<img src="images/task_1_7_2.png"/>
+		<a href="#" class="login">登录</a>
+	</nav>
+	<div class="line1"></div>
+</header>
+
+<div class="main">
+	<div class="main1">
+		<p class="main1_p1">Time of new life</p>
+		<p class="main1_p2">新时代，年轻的人们让我们一起<br/>体验新生活，享受新生活</p>
+		<div class="main1_a1"><a href="#">开始体验</a></div>
+	</div>
+	<div class="main2">
+		<img class="main2_img1" src="images/task_1_7_4.png"/>
+		<img class="main2_img2" src="images/task_1_7_5.png"/>
+		<img class="main2_img3" src="images/task_1_7_6.png"/>
+		<img class="main2_img4" src="images/task_1_7_7.png"/>
+		<a class="main2_a1" href="#">打造全新世界观，让你更爱你的生活</a>
+		<div class="bar1"></div>
+		<a class="main2_a2" href="#">丰富多彩的公益活动，发挥新世界的主人公意识</a>
+		<div class="bar2"></div>
+		<a class="main2_a3" href="#">时尚的新理念，超前体验位置的生活</a>
+		<div class="bar3"></div>
+		<a class="main2_a4" href="#">完善的培养机制，培养你全新的世界观</a>
+	</div>
+	<div class="main3">
+		<img src="images/task_1_7_8.png"/>
+		<p>关于新世界，你不知道的还有什么？</p>
+	</div>
+	<div class="main4">
+		<p class="main4_p1">查找新世界城市活动信息<p>
+		<div class="line2"></div>
+		<p class="main4_p2">每个城市都有不同的活动信息，请自主查询您所需要了解的城市</p>
+		<form class="form1" action="">
+			<select name="countries">
+				<option>中国</option>
+				<option>外国</option>
+			</select>
+			<select name="province" class="province" value="省份">
+			</select>
+			<select name="city" class="city" value="城市">
+			</select>
+			<input type="button" value="搜      索"/>
+			<div class="page">
+				<p class="page_p1">北京市</p>
+				<p>天津市</p>
+				<p>河北省</p>
+				<p>陕西省</p>
+				<p>内蒙古自治区</p>
+				<p>辽宁省</p>
+			</div>
+		</form>
+	</div>
+	<div class="main5">
+		<div class="main5_bj">
+			<div><img src="images/task_1_7_bj.png"/></div>
+			<a class="main5_bj_a1" href="#">北京活动</a><br/>
+			<a class="main5_bj_a2" href="#">新社区大联盟</a>
+		</div>
+		<div class="main5_sh">
+			<a class="main5_sh_a1" href="#"><span>上</span><span>海</span><span>活</span>动</a><br/>
+			<a class="main5_bj_a2" href="#">夜上海新景观探索</a>
+			<div><img src="images/task_1_7_sh.png"/></div>
+		</div>
+		<div class="main5_sz">
+			<div><img src="images/task_1_7_sz.png"/></div>
+			<a class="main5_bj_a1" href="#">深圳活动</a><br/>
+			<a class="main5_bj_a2" href="#">全新海岸线观点站</a>
+		</div>
+		<div class="main5_hk">
+			<div><img src="images/task_1_7_hk.png"/></div>
+			<a class="main5_bj_a1" href="#">香港活动</a><br/>
+			<a class="main5_bj_a2" href="#">奢侈消费大派送</a>
+		</div>
+	</div>
+	<div class="main6">
+		<div class="main6_l">
+			<p class="main6_l_p1">新世界</p>
+			<p class="main6_l_p2">TIME</p>
+			<p class="main6_l_p3">@新世界 - 北京</p>
+			<p class="main6_l_p4">2016.04.01</p>
+			<img src="images/task_1_7_12.png"/>
+		</div>
+		<div class="mian6_r">
+			<span class="mian6_r_span1">新世界</span>
+			<img class="mian6_r_img1" src="images/task_1_7_14.png"/>
+			<span class="mian6_r_span2">01</span>
+			<p class="mian6_r_p1">新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界</p>
+			<a class="mian6_r_p2" href="#">更多详情</a>
+			<div></div>
+		</div>
+	</div>
+	<div class="main7">
+		<div class="main7_l">
+			<p class="main7_l_p1">新时代</p>
+			<p class="main7_l_p2">关于爱生活的我们</p>
+			<div class="line3"></div>
+			<a class="main7_l_a1" href="#">查看更多</a>
+		</div>
+		<div class="main7_m">
+			<p class="main7_l_p3">新时代</p>
+			<p class="main7_l_p4">关于爱生活的我们</p>
+			<div class="line4"></div>
+			<a class="main7_m_a1" href="#">查看更多</a>
+		</div>
+		<div class="main7_r">
+			<img class="main7_r_img1" src="images/task_1_7_15.png"/>
+		</div>
+	</div>
+	<div class="mian8">
+		<div class="main8_t">
+			<p class="main8_t_p1">成为我们的志愿者</p>
+			<div class="line5"></div>
+			<p class="main8_t_p2">新世界的大家庭需要每一个爱生活的人的加入，如果你够年轻，有梦想，有激情</p>
+			<p class="main8_t_p2">那就不要犹豫，快来加入我们，成为改变所有人生活的人</p>
+		</div>
+		<div class="main8_l">
+			<p class="main8_l_p1">新世界志愿者协议</p>
+			<p class="main8_l_p2">加入新世界志愿者的人员必须遵守中华人民共和国的相关法律法规，并且本着平等自愿的原则...</p>
+			<div class="main8_l_p3">more</div>
+			<p class="main8_l_p1">新世界志愿者权利</p>
+			<p class="main8_l_p2">新世界志愿者享受新世界内部所有资源共享的权利，并且享受所在四新世界活动的优先参与资格</p>
+			<div class="main8_l_p3">more</div>
+			<a class="main8_l_p1" href="#">更多条款</a>
+			<div class="main8_l_p3">more</div>
+		</div>
+		<div class="main8_r">
+			<table>
+				<tr>
+					<td>姓名：</td>
+					<td>年龄：</td>
+				</tr>
+				<tr>
+					<td>联系方式：</td>
+					<td>联系地址：</td>
+				</tr>
+				<tr>
+					<td rowspan="4" colspan="2">请简单描述您梦想的生活</td>
+				</tr>
+				<tr>	
+				</tr>
+				<tr>	
+				</tr>
+				<tr>	
+				</tr>
+				<tr>
+					<td colspan="2" class="main8_r_btn1"><input type="submit" name="" value="提交申请"/></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="main9">
+		<p class="main9_p1">联系我们</p>
+		<p class="main9_p2">为了更好的获取我们最新的产品资讯，您可以留下您的电子邮箱快速订阅我们的产品资讯</p>
+		<p class="main9_p3">也可以通过以下任何方式关注我们的动态</p>
+		<form>
+			<input class="main9_txt1" type="text" name="" value="someone@email.com"/>
+			<input class="main9_btn1" type="submit" name="" value="提  交"/>
+		</form>
+		<a href="#"><img src="images/task_1_7_qq.png"/></a>
+		<a href="#"><img src="images/task_1_7_wb.png"/></a>
+		<a href="#"><img src="images/task_1_7_fb.png"/></a>
+		<a href="#"><img src="images/task_1_7_gb.png"/></a>
+	</div>
+
+	<footer>
+		<span>&copy;2016新世界</span>
+		<a href="#">Back to top</a>
+	</footer>
+</div>	
+</body>
+</html>

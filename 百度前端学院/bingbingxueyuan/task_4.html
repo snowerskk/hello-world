@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task-4</title>
+	<script>
+		window.onload=function(){
+			function $(id){return document.getElementById(id);}
+			$('leftIn').onclick=function(){
+				var span=document.createElement('span');
+				span.innerHTML=$('txt').value+' ';
+				$('box').insertBefore(span,$('box').children[0]);
+				$('txt').value='';
+			}
+			$('rightIn').onclick=function(){
+				var span=document.createElement('span');
+				span.innerHTML=$('txt').value+' ';
+				$('box').appendChild(span);
+				$('txt').value='';
+			}
+			$('leftOut').onclick=function(){
+				if($('box').children.length>0){
+					$('box').removeChild($('box').children[0]);
+				}
+			}
+			$('rightOut').onclick=function(){
+				var len=$('box').children.length;
+				if(len>0){
+					$('box').removeChild($('box').children[len-1]);
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+<input type="text" name="" id="txt">
+<input type="button" value="左侧入" id='leftIn'>
+<input type="button" value="右侧入" id='rightIn'>
+<input type="button" value="左侧出" id='leftOut'>
+<input type="button" value="右侧出" id='rightOut'>
+<div id='box'></div>	
+</body>
+</html>

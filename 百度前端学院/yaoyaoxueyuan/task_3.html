@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task-3</title>
+	<style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	#personInfo{
+		width:600px;
+		margin:100px auto 0px;
+	}
+	#student,#notStudent{
+		margin-left: 100px;
+		margin-right: 4px;
+	}
+	#personInfo label{
+		font-size: 20px;
+		margin-right: 80px;
+	} 
+	#school{
+		width:600px;
+		height: 80px;
+		line-height: 80px;
+		margin:0 auto;
+	}
+	#school label{
+		font-size: 20px;
+		margin-right: 16px;
+		float:right;
+	}
+	#city{
+		width:200px;
+		height:34px;
+		float:right;
+		margin-right: 10px;
+		margin-top: 23px;
+		font-size: 18px;
+		outline: none;
+		border-radius: 4px;
+	}
+	#citySchool{
+		width:270px;
+		height:30px;
+		float:right;
+		font-size: 18px;
+		margin-right:10px;
+		padding-left: 10px;
+		margin-top: 23px;
+		vertical-align: top;
+		outline: none;
+		border-radius: 4px;
+	}
+	#units{
+		width:600px;
+		height:80px;
+		line-height: 80px;
+		margin:0 auto;
+		display: none;
+	}
+	#units label{
+		font-size: 20px;
+		margin-right: 10px;
+		
+	}
+	#units input{
+		margin-right: 10px;
+		margin-top: 25px;
+		width:480px;
+		height:30px;
+		padding-left: 10px;
+		float:right;
+		outline: none;
+		border-radius: 4px;
+		font-size: 18px;
+	}
+	</style>
+	<script>
+		window.onload=function(){
+			function $(id){return document.getElementById(id);}
+			//单选框切换
+			$('student').onclick=function(){
+				$('school').style.display='block';
+				$('units').style.display='none';
+			}
+			//单选框切换
+			$('notStudent').onclick=function(){
+				$('school').style.display='none';
+				$('units').style.display='block';
+			}
+			//下拉列表切换
+			$('city').onchange=function(){
+				$('citySchool').value='';
+				if(this.value=='上海'){
+					$('citySchool').setAttribute('list','shanghai');
+				}else if(this.value=='南京'){
+					$('citySchool').setAttribute('list','nanjing');
+				}else if(this.value=='北京'){
+					$('citySchool').setAttribute('list','');
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<form action="" >
+		<div id="personInfo">
+			<input type="radio" name="info" id="student" checked="checked"><label for="student">在校生</label> 		
+			<input type="radio" name="info" id="notStudent"><label for="notStudent">非在校生</label> 		
+		</div>
+		<div id="school">
+			<input type="text" name="" id="citySchool" list="beijing">
+				<datalist id="beijing">
+					<option value="北京大学">北京大学</option>
+					<option value="清华大学">清华大学</option>
+					<option value="中国人民大学">中国人民大学</option>
+				</datalist>
+				<datalist id="shanghai">
+					<option value="复旦大学">复旦大学</option>
+					<option value="上海交通大学">上海交通大学</option>
+					<option value="同济大学">同济大学</option>
+				</datalist>
+				<datalist id="nanjing">
+					<option value="南京大学">南京大学</option>
+					<option value="东南大学">东南大学</option>
+					<option value="河海大学">河海大学</option>
+				</datalist>
+			<select name="" id="city">
+				<option value="北京">北京</option>
+				<option value="上海">上海</option>
+				<option value="南京">南京</option>
+			</select>
+			<label for="">学校</label>	
+		</div>
+		<div id="units">
+			<label for="">就业单位</label>
+			<input type="text" name="" id="" autofocus="autofocus">
+		</div>
+	</form>
+</body>
+</html>

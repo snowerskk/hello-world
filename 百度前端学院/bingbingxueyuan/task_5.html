@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task-5</title>
+	<script>
+		window.onload=function(){
+			function $(id){return document.getElementById(id);}
+			//输入内容检验函数
+			function checkValue(val){
+				val=parseInt(val);
+				if(!isNaN(val)){
+					if(val>=10 && val<=100){
+						return val;
+					}else{
+						alert('请输入10-100的数字');
+						return false;
+					}
+				}else{
+					alert('请输入10-100的数字');
+					return false;
+				}
+			}
+			//左侧输入按钮绑定点击事件
+			$('leftIn').onclick=function(){
+				if(checkValue($('txt').value)){
+					var span=document.createElement('span');
+					span.style.display='inline-block';
+					span.style.background='red';
+					span.style.border='1px solid white';
+					span.style.width='20px';
+					span.style.height=$('txt').value+'px';
+					$('box').insertBefore(span,$('box').children[0]);
+					$('txt').value='';
+				}	
+			}
+			//右侧输入按钮绑定点击事件
+			$('rightIn').onclick=function(){
+				if(checkValue($('txt').value)){
+					var span=document.createElement('span');
+					span.style.display='inline-block';
+					span.style.background='red';
+					span.style.border='1px solid white';
+					span.style.width='20px';
+					span.style.height=$('txt').value+'px';
+					$('box').appendChild(span);
+					$('txt').value='';
+				}	
+			}
+			//左侧删除按钮绑定点击事件
+			$('leftOut').onclick=function(){
+				if($('box').children.length>0){
+					$('box').removeChild($('box').children[0]);
+				}
+			}
+			//右侧删除按钮绑定点击事件
+			$('rightOut').onclick=function(){
+				var len=$('box').children.length;
+				if(len>0){
+					$('box').removeChild($('box').children[len-1]);
+				}
+			}
+			//排序按钮绑定点击事件
+			$('sort').onclick=function(){
+				var aspan=$('box').getElementsByTagName('span');
+				bubbleSort(aspan);	
+			}
+			//冒泡排序函数
+			function bubbleSort(arr){
+				for(var i=0;i<arr.length-1;i++){
+                	for(var j=0;j<arr.length-i-1;j++){
+                    	if(arr[j].style.height>arr[j+1].style.height){
+                        	var tmp=arr[j].style.height;
+                        	arr[j].style.height=arr[j+1].style.height;
+                        	arr[j+1].style.height=tmp;
+                    	}
+                	}
+            	}
+			}
+		}
+	</script>
+</head>
+<body>
+<input type="text" name="" id="txt">
+<input type="button" value="左侧入" id='leftIn'>
+<input type="button" value="右侧入" id='rightIn'>
+<input type="button" value="左侧出" id='leftOut'>
+<input type="button" value="右侧出" id='rightOut'>
+<input type="button" value="排序" id='sort'>
+<div id='box'></div>	
+</body>
+</html>

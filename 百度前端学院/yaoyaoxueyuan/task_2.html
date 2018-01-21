@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task-2</title>
+	<style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	.form{
+		width:600px;
+		margin:0px auto;
+		position: relative;
+		overflow: hidden;
+		
+	}
+	.form .tips{
+		line-height: 20px;
+	}
+	.form div{
+		width:600px;
+		height:60px;
+		line-height: 60px;
+	}
+	.form label{
+		font-size: 20px;
+		font-weight: 700;
+		font-family: 黑体;
+		float:right;
+	}
+	.form #txt,#psd,#psds,#email,#tel{
+		width:400px;
+		height:50px;
+		border-radius: 8px;
+		border:2px solid #ccc;
+		padding-left:20px;
+		font-size: 20px;
+		vertical-align: top;
+		margin:0 30px;
+		outline:none;
+		float:right;
+	}
+	.form span{
+		font-weight: 700;
+		color:#ccc;
+		margin-left: 146px;
+		display: none;
+	}
+		
+	#sub{
+		margin-right: 30px;
+		float:right;
+		width:90px;
+		height:52px;
+		color:white;
+		background: blue;
+		border:none;
+		border-radius: 8px;
+		font-size: 20px;
+		font-weight: 700;
+		font-family: 黑体;
+		outline: none;
+		cursor: pointer;
+	
+	}
+	</style>
+</head>
+<script>
+	window.onload=function(){
+		
+		function $(id){return document.getElementById(id)}
+		//名称
+		$('txt').onfocus=function(){
+			$('txtTip').style.display='block';
+		}
+		$('txt').onblur=function(){
+			txtCheck();
+		}
+		//名称验证
+		function txtCheck(){
+			var isOk=false;
+			var tip=checkLength($('txt').value);
+			$('txtTip').innerHTML=tip;
+			if(tip=='名称格式正确'){
+				$('txtTip').style.color='green';
+				$('txt').style.border='2px solid green';
+				return isOk=true;
+
+			}else{
+				$('txtTip').style.color='red';
+				$('txt').style.border='2px solid red';
+			}
+		}
+		//密码
+		$('psd').onfocus=function(){
+			$('psdTip').style.display='block';
+		}
+		$('psd').onblur=function(){
+			psdCheck();
+		}
+		//密码验证
+		function psdCheck(){
+			var isOk=false;
+			$('psdTip').style.display='block';
+			if(!(/^[a-zA-Z\d_]{8,20}$/.test($('psd').value))){
+				$('psdTip').innerHTML='输入的密码不符合要求';
+				$('psdTip').style.color='red';
+				$('psd').style.border='2px solid red';
+			}else{
+				$('psdTip').innerHTML='输入正确';
+				$('psdTip').style.color='green';
+				$('psd').style.border='2px solid green';
+				return isOk=true;
+			}
+		}
+		//密码确认
+		$('psds').onfocus=function(){
+			$('psdsTip').style.display='block';
+		}
+		$('psds').onblur=function(){
+			psdsCheck();
+		}
+		//密码确认验证
+		function psdsCheck(){
+			var isOk=false;
+			$('psdsTip').style.display='block';
+			if($('psds').value!='' && $('psds').value==$('psd').value){
+				$('psdsTip').innerHTML='密码正确';
+				$('psdsTip').style.color='green';
+				$('psds').style.border='2px solid green';
+				return isOk=true;
+			}else{
+				$('psdsTip').innerHTML='输入的密码不匹配';
+				$('psdsTip').style.color='red';
+				$('psds').style.border='2px solid red';
+			}
+		}
+		//邮箱
+		$('email').onfocus=function(){
+			$('emailTip').style.display='block';
+		}
+		$('email').onblur=function(){
+			emailCheck();
+		}
+		//邮箱验证
+		function emailCheck(){
+			var isOk=false;
+			$('emailTip').style.display='block';
+			if(!(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/.test($('email').value))){
+				$('emailTip').innerHTML='邮箱格式不正确';
+				$('emailTip').style.color='red';
+				$('email').style.border='2px solid red';
+			}else{
+				$('emailTip').innerHTML='输入正确';
+				$('emailTip').style.color='green';
+				$('email').style.border='2px solid green';
+				return isOk=true;
+			}
+		}
+		//手机
+		$('tel').onfocus=function(){
+			$('telTip').style.display='block';
+		}
+		$('tel').onblur=function(){
+			telCheck();
+		}
+		//手机验证
+		function telCheck(){
+			var isOk=false;
+			$('telTip').style.display='block';
+			if(!(/^1[3|4|5|8][0-9]\d{8}$/.test($('tel').value))){
+				$('telTip').innerHTML='输入的号码不正确';
+				$('telTip').style.color='red';
+				$('tel').style.border='2px solid red';
+			}else{
+				$('telTip').innerHTML='输入正确';
+				$('telTip').style.color='green';
+				$('tel').style.border='2px solid green';
+				return isOk=true;
+			}
+		}
+		//绑定提交按钮事件-全局验证
+		$('sub').onclick=function(){
+			if(txtCheck()){
+				if(psdCheck()){
+					if(psdsCheck()){
+						if(emailCheck()){
+							if(telCheck()){
+								alert('填写信息全部通过');
+							}
+						}
+					}
+				}
+				
+			}
+			return false;
+		}
+		//计算输入字符串长度
+		function countLength(str){
+			var strLength=0;
+			for(k in str){
+				if(str[k].charCodeAt()>=0 && str[k].charCodeAt()<=127){
+					strLength++;
+				}else{
+					strLength+=2;
+				}
+			}
+			return strLength;
+		}
+		//判断字符串长度
+		function checkLength(str){
+			var tip='';
+			if(str==''){
+				tip='姓名不能为空';	
+			}else{
+				if(countLength(str)>=4 && countLength(str)<=16){
+					tip='名称格式正确';
+				}else{
+					tip='必填，长度为4~16个字符';	
+				}	
+			}
+			return tip;
+		}
+	}
+</script>
+<body>
+	<div class="form">
+		<form action="">
+			<div>
+				<input type="text" name="" id="txt" autofocus="autofocus"><label for="txt">名称</label>
+			</div>
+			<div class="tips">
+				<span id="txtTip">必填，长度为4~16个字符</span>
+			</div>
+			<div>
+				<input type="password" name="" id="psd"><label for="psd">密码</label>
+			</div>
+			<div class="tips">
+				<span id="psdTip">必填，长度为8~20个字符(由数字、字母及下划线组成)</span>
+			</div>
+			<div>
+				<input type="password" name="" id="psds"><label for="psds">密码确认</label>
+			</div>
+			<div class="tips">
+				<span id="psdsTip">请再次输入密码</span>
+			</div>
+			<div>
+				<input type="email" name="" id="email"><label for="email">邮箱</label>
+			</div>
+			<div class="tips">
+				<span id="emailTip">必填，输入验证邮箱，用于找回账号密码</span>
+			</div>
+			<div>
+				<input type="telephone" name="" id="tel"><label for="tel">手机</label>
+			</div>
+			<div class="tips">
+				<span id="telTip">必填，输入11位手机号</span>
+			</div>
+			<div>
+				<input type="submit" value="提交" id="sub">
+			</div>
+		</form>
+	</div>
+	
+</body>
+</html>

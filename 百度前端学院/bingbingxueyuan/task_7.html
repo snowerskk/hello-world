@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task-7</title>
+	<style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	/* 使用flexbox布局 */
+	div{
+		display: flex;
+		border:1px solid black;
+		justify-content: center;
+		align-items: center;
+		margin:0 2%;
+	}
+	.box{
+		width:800px;
+		height:300px;
+		margin:100px auto;	
+	}
+	.box div{
+		width:42%;
+		height:80%;
+		background: #fff;	
+	}
+	.btn_box{
+		border:none;
+	}
+	.btn_box input{
+		font-weight: 700;
+		margin:0 2%;
+		width:50px;
+		height:30px;
+	}
+	</style>
+	<script>
+		window.onload=function(){
+			var box=document.querySelector('.box');
+			var adiv=document.getElementsByTagName('div');
+			var btn_box=document.querySelector('.btn_box');
+			var btn1=btn_box.getElementsByTagName('input')[0];
+			var btn2=btn_box.getElementsByTagName('input')[1];
+			var btn3=btn_box.getElementsByTagName('input')[2];
+			var arr = [];
+        	var last;
+        	var toggle = false;
+        	//绑定前序按钮点击事件
+			btn1.onclick = function(){
+            	if(!toggle){
+                	toggle = true;
+                	reset();
+                	preOrder(box);
+                	show();
+            	}
+        	}
+        	//绑定中序按钮点击事件
+        	btn2.onclick = function(){
+            	if(!toggle){
+                	toggle = true;
+                	reset();
+                	inOrder(box);
+                	show();
+            	}
+        	}
+        	//绑定后序按钮点击事件
+        	btn3.onclick = function(){
+            	if(!toggle){
+                	toggle = true;
+                	reset();
+                	postOrder(box);
+                	show();
+            	}
+        	}
+        	//前序遍历-根左右
+        	function preOrder(node){
+            	if(node){
+                	arr.push(node);
+                	preOrder(node.firstElementChild);
+                	preOrder(node.lastElementChild);
+            	}
+       		}
+       		//中序遍历-左根右
+       		function inOrder(node){
+            	if(node){
+                	inOrder(node.firstElementChild);
+                	arr.push(node);
+                	inOrder(node.lastElementChild);
+            	}
+        	}
+        	//后序遍历-左右根
+        	function postOrder(node){
+            	if(node){
+                	postOrder(node.firstElementChild);
+                	postOrder(node.lastElementChild);
+                	arr.push(node);
+            	}
+        	}
+        	//可视化遍历过程
+       		function show(){
+            	for(var i=0; i<arr.length; i++){
+                	setTimeout(function(i){
+                    	return function(){
+                        	if(i == arr.length-1){
+                            	toggle = false;
+                        	}
+                        	arr[i].style.background = "red";
+                        	last = arr[i];
+                    	}
+                	}(i),i*500)
+            	}
+        	}
+        	//重置
+        	function reset(){
+            	arr = [];
+            	for(var i=0;i<adiv.length;i++){
+            		adiv[i].style.background = "white";
+            	}
+        	}	
+		}
+	</script>
+</head>
+<body>
+<div class='box'>
+	<div>
+		<div>
+			<div></div>
+			<div></div>
+		</div>
+		<div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+	<div>
+		<div>
+			<div></div>
+			<div></div>
+		</div>
+		<div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+</div>
+<div class="btn_box">
+	<input type="button" value="前序">
+	<input type="button" value="中序">
+	<input type="button" value="后序">
+</div>	
+</body>
+</html>

@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格排序</title>
+    <style>
+    	*{
+    		margin:0;
+    		padding:0;
+    	}
+        #tab {
+            border-collapse: collapse;
+            margin: 100px auto;
+        }
+        #tab td {
+            width: 180px;
+            height: 60px;
+            text-align: center;
+            border: 1px solid black;
+        }
+        #tab thead {
+            background-color: blue;
+            font-weight: 700;
+            color: white;
+        }
+        .upBtn {
+            position: relative;
+            left:28px;
+            top: -8px;
+            display: inline-block;
+            width:0;
+            height:0;
+            border-bottom:8px solid #fff;     
+            border-left:8px solid transparent;    
+            border-right:8px solid transparent;
+            margin-left: -20px;
+            cursor: pointer;    
+        }
+		.upBtn:hover{
+			border-bottom: 8px solid red;
+		}
+        .downBtn {
+            position: relative;
+            left:12px;
+            bottom: -4px;
+            display: inline-block;
+            width:0;
+            height:0;
+            border-top:8px solid #fff;     
+            border-left:8px solid transparent;     
+            border-right:8px solid transparent;
+            cursor: pointer;    
+        }
+        .downBtn:hover{
+			border-top: 8px solid red;
+		}
+    </style>
+    <script>
+    window.onload=function(){
+    //表头
+    var tabHeader = {
+        heads: [{
+            name: 'name',
+            label: '姓名',
+            sortable: false
+        }, {
+            name: 'chinese',
+            label: '语文',
+            sortable: true
+        }, {
+            name: 'math',
+            label: '数学',
+            sortable: true
+        }, {
+            name: 'english',
+            label: '英语',
+            sortable: true
+        }, {
+            name: 'total',
+            label: '总分',
+            sortable: true
+        }]
+    };
+    //单元格数据
+    var datas = [
+        {
+            name: '小明',
+            chinese: 80,
+            math: 90,
+            english: 70,
+            total: 240
+        },
+        {
+            name: '小红',
+            chinese: 90,
+            math: 60,
+            english: 90,
+            total: 240
+        },
+        {
+            name: '小亮',
+            chinese: 60,
+            math: 100,
+            english: 70,
+            total: 230
+        }
+    ];
+    function init() {
+        addThead();
+        addTbody();
+    }
+    var tabCon = document.getElementById('tab')
+    var tabHeadLen = tabHeader.heads.length;
+    var tabHead = tabHeader.heads;
+    var dataLen = datas.length;
+    //插入表头数据
+    function addThead() {
+        var tHead = document.createElement('thead');
+        var trNode = addTr();
+        //生成表头单元格
+        tabHead.forEach(function (head) {
+            var tds = addTd(head.label);
+            if (head.sortable) {
+                var val = head.name;
+                //添加升序排列按钮
+                var upBtn = document.createElement('span');
+                upBtn.className = 'upBtn';
+                tds.appendChild(upBtn);
+                //绑定点击事件
+                upBtn.onclick = function () {
+                    upSort(val);
+                };
+                //添加降序排列按钮
+                var downBtn = document.createElement('span');
+                downBtn.className = 'downBtn';
+                tds.appendChild(downBtn);
+                //绑定点击事件
+                downBtn.onclick = function () {
+                    downSort(val);
+                };
+            }
+            trNode.appendChild(tds);
+        });
+        tHead.appendChild(trNode);
+        tabCon.appendChild(tHead);
+    }
+    //添加表格内容
+    function addTbody() {
+        var tBody = document.createElement('tbody');
+        for (var i = 0; i < dataLen; i++) {
+            var trNode = addTr();
+            for (var key in  datas[i]) {
+                var tds = addTd(datas[i][key]);
+                trNode.appendChild(tds);
+            }
+            tBody.appendChild(trNode);
+        }
+        tabCon.appendChild(tBody);
+    }
+    //生成单元行
+    function addTr() {
+        var trNode = document.createElement('tr');
+        return trNode;
+    }
+    //生成单元格
+    function addTd(value) {
+        var tdNode = document.createElement('td');
+        tdNode.innerText = value;
+        return tdNode;
+    }
+    //升序排列按钮
+    function upSort(val) {
+        sort1(val);
+        tabCon.innerHTML = ' ';
+        init();
+    }
+    function sort1(val) {
+        var byScore = function (a, b) {
+            return a[val] - b[val];
+        };
+        return datas.sort(byScore);
+    }
+    //降序排列按钮
+    function downSort(val) {
+        sort2(val);
+        tabCon.innerHTML = ' ';
+        init();
+    }
+    function sort2(val) {
+        var byScore = function (a, b) {
+            return b[val] - a[val];
+        };
+        return datas.sort(byScore);
+    }
+    init();
+    }
+    </script>
+</head>
+<body>
+<table id="tab"></table>
+</body>
+</html>

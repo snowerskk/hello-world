@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task-5</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        td{
+            width: 50px;
+            height: 50px;
+            border: 1px solid gray;
+            text-align: center;
+        }
+        table{
+            margin: 0 auto;
+            border-collapse: collapse;
+            position: relative;
+        }
+        table tr:nth-child(1) td{
+            border: none;
+        }
+        table tr td:nth-child(1){
+            border: none;
+        }
+        #square{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            left:50px;
+            top:50px;
+            transform: rotate(0deg);
+        }
+        #top{
+            height: 30%;
+            background-color: blue;
+        }
+        #bottom{
+            height: 70%;
+            background-color: red;
+        }
+        .control{
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        #txt{
+            outline: none;
+            margin-top:20px;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            function $(id){return document.getElementById(id);}
+            var angle=0;
+            //执行按钮点击事件
+            $('btn').onclick=function(){
+                var input=$('txt').value.toUpperCase();
+                //左转90度
+                if(input=='LEFT'){
+                    angle-=90;
+                    $('square').style.transform='rotate('+angle+'deg)';
+                //右转90度
+                }else if(input=='RIGHT'){
+                    angle+=90;
+                    $('square').style.transform='rotate('+angle+'deg)';
+                //移动
+                }else if(input=='GO'){
+                    directMove();
+                //移动不转向
+                }else if(input=='TRA TOP' || input=='TRA BOT' || input=='TRA LEF' || input=='TRA RIG'){
+                    move();
+                //移动并且转向
+                }else if(input=='MOV TOP' || input=='MOV BOT' || input=='MOV LEF' || input=='MOV RIG'){
+                    move();
+                    turn();
+                }
+            }
+            //转向
+            function turn(){
+                var input=$('txt').value.toUpperCase();
+                if(input=='MOV LEF'){
+                    $('square').style.transform='rotate(-90deg)';
+                }else if(input=='MOV RIG'){
+                    $('square').style.transform='rotate(90deg)';
+                }else if(input=='MOV TOP'){
+                    $('square').style.transform='rotate(0deg)';
+                }else if(input=='MOV BOT'){
+                    $('square').style.transform='rotate(180deg)';
+                }
+            }
+            //非转向移动函数
+            function move(){
+                var distance=0;
+                var top=$('square').offsetTop;
+                var left=$('square').offsetLeft;
+                var input=$('txt').value.toUpperCase();
+                //判断方向
+                //上
+                if(input=='TRA TOP' || input=='MOV TOP'){
+                    if(top>50){
+                        distance-=50;
+                        $('square').style.top=(top+distance)+'px';
+                    }
+                }
+                //下
+                if(input=='TRA BOT' || input=='MOV BOT'){
+                    if(top<500){
+                        distance+=50;
+                        $('square').style.top=(top+distance)+'px';
+                    }
+                }
+                //左
+                if(input=='TRA LEF' || input=='MOV LEF'){
+                    if(left>50){
+                        distance-=50;
+                        $('square').style.left=(left+distance)+'px';
+                    }
+                }
+                //右
+                if(input=='TRA RIG' || input=='MOV RIG'){
+                    if(left<500){
+                        distance+=50;
+                        $('square').style.left=(left+distance)+'px';
+                    }
+                }   
+            }
+            //转向移动函数
+            function directMove(){
+                var distance=0;
+                var top=$('square').offsetTop;
+                var left=$('square').offsetLeft;
+                //判断方向
+                //上
+                if(angle%360==0){
+                    if(top>50){
+                        distance-=50;
+                        $('square').style.top=(top+distance)+'px';
+                    }
+                //下
+                }else if(angle%360==180 || angle%360==-180){
+                    if(top<500){
+                        distance+=50;
+                        $('square').style.top=(top+distance)+'px';
+                    }
+                //左
+                }else if(angle%360==270 || angle%360==-90){
+                    if(left>50){
+                        distance-=50;
+                        $('square').style.left=(left+distance)+'px';
+                    }
+                //右
+                }else if(angle%360==-270 || angle%360==90){
+                    if(left<500){
+                        distance+=50;
+                        $('square').style.left=(left+distance)+'px';
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <tbody>
+            <tr>
+                <td></td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td></td>
+                <td>
+                    <div id="square">
+                        <div id="top"></div>
+                        <div id="bottom"></div>
+                    </div>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="control">
+        <input type="text" id="txt">
+        <button id="btn">执行</button>
+    </div>
+</body>
+</html>

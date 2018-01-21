@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task-8</title>
+	<style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	/* 使用flexbox布局 */
+	div{
+		display: flex;
+		border:1px solid black;
+		justify-content: center;
+		align-items: center;
+		margin:0 2%;
+		font-size: 14px;
+		font-family: 微软雅黑;
+	}
+	.box{
+		width:800px;
+		height:300px;
+		margin:100px auto;	
+	}
+	.box div{
+		width:42%;
+		height:60%;
+		background: #fff;	
+	}
+	.btn_box{
+		border:none;
+	}
+	.btn_box input{
+		font-weight: 700;
+		margin:0 2%;
+		width:50px;
+		height:30px;
+	}
+	</style>
+	<script>
+		window.onload=function(){
+			var box=document.querySelector('.box');
+			var adiv=document.getElementsByTagName('div');
+			var btn_box=document.querySelector('.btn_box');
+			var btn1=btn_box.getElementsByTagName('input')[0];
+			var findTxt=document.getElementById('findTxt');
+			var findBtn=document.getElementById('findBtn');
+			var arr = [];
+        	var last;
+        	var toggle = false;
+        	//绑定前序按钮点击事件
+			btn1.onclick = function(){
+            	if(!toggle){
+                	toggle = true;
+                	reset();
+                	preOrder(box);
+                	show();
+            	}
+        	}
+        	// var timer=null;
+        	findBtn.onclick=function(){
+        		reset();
+        		preOrder(box);
+        		var isFind=false;
+        		for(var i=0; i<arr.length; i++){
+                	var timer=setTimeout(function(i){
+                    	return function(){
+                        	if(i == arr.length-1){
+                            	toggle = false;
+                        	}
+                        	if(last){
+                        		last.style.background = "white";
+                        	}
+                        	if(arr[i].innerText==findTxt.value){
+                        		isFind=true;
+                        		arr[i].style.background='yellow';
+                        		arr=[];
+                        		
+                        	}else{ 
+                        		arr[i].style.background = "red";
+                        		last = arr[i];
+                        	}
+    
+                        	if(i==27 && !isFind){
+                        		alert('抱歉！没找到！');
+                        	}
+                    	}
+                	}(i),i*500)
+            	}
+        			
+        		
+        	}
+        	//前序遍历-根左右
+        	function preOrder(node){
+            	if(node){
+                	arr.push(node);
+                	preOrder(node.children[0]);
+                	preOrder(node.children[1]);
+                	preOrder(node.children[2]);
+            	}
+       		}
+        	//可视化遍历过程
+       		function show(){
+            	for(var i=0; i<arr.length; i++){
+                	setTimeout(function(i){
+                    	return function(){
+                        	if(i == arr.length-1){
+                            	toggle = false;
+                        	}                      	
+                        	arr[i].style.background = "red";
+                        	last = arr[i];
+                    	}
+                	}(i),i*500)
+            	}
+        	}
+        	//重置
+        	function reset(){
+            	arr = [];
+            	for(var i=0;i<adiv.length;i++){
+            		adiv[i].style.background = "white";
+            	}
+        	}	
+		}
+	</script>
+</head>
+<body>
+<div class='box'>
+	全球
+	<div>
+		亚洲
+		<div>
+			中国
+			<div>北京</div>
+			<div>上海</div>
+			<div>广州</div>
+		</div>
+		<div>
+			日本
+			<div>东京</div>
+			<div>大阪</div>
+			<div>横滨</div>
+		</div>
+	</div>
+	<div>
+		欧洲
+		<div>
+			英国
+			<div>伦敦</div>
+			<div>伯明翰</div>
+			<div>曼彻斯特</div>
+		</div>
+		<div>
+			法国
+			<div>巴黎</div>
+			<div>马赛</div>
+			<div>里昂</div>
+		</div>
+	</div>
+	<div>
+		美洲
+		<div>
+			美国
+			<div>纽约</div>
+			<div>洛杉矶</div>
+			<div>芝加哥</div>
+		</div>
+		<div>
+			加拿大
+			<div>温哥华</div>
+			<div>多伦多</div>
+			<div>蒙特利尔</div>
+		</div>
+	</div>
+</div>
+<div class="btn_box">
+	<input type="button" value="前序">
+	<input type="text" name="" id="findTxt">
+	<input type="button" value="查询" id="findBtn">
+</div>	
+</body>
+</html>

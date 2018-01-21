@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task-1</title>
+	<style>
+	*{
+		margin:0;
+		padding:0;
+	}
+	.form{
+		width:800px;
+		height:100px;
+		margin:100px auto;
+		position: relative;
+		
+	}
+	.form label{
+		font-size: 20px;
+		font-weight: 700;
+		font-family: 黑体;
+	}
+	.form #txt{
+		width:400px;
+		height:50px;
+		border-radius: 8px;
+		border:2px solid #ccc;
+		padding-left:20px;
+		font-size: 20px;
+		vertical-align: top;
+		margin:0 30px;
+		outline:none;
+	}
+	.form span{
+		font-weight: 700;
+		color:#ccc;
+		position: absolute;
+		left:76px;
+		top:60px;
+	}
+	.form #btn{
+		width:90px;
+		height:52px;
+		color:white;
+		background: blue;
+		border:none;
+		border-radius: 8px;
+		font-size: 20px;
+		font-weight: 700;
+		font-family: 黑体;
+		outline: none;
+		cursor: pointer;
+	}
+	</style>
+</head>
+<script>
+	window.onload=function(){
+		function $(id){return document.getElementById(id)}
+		//计算输入字符串长度
+		function countLength(str){
+			var strLength=0;
+			for(k in str){
+				if(str[k].charCodeAt()>=0 && str[k].charCodeAt()<=127){
+					strLength++;
+				}else{
+					strLength+=2;
+				}
+			}
+			return strLength;
+		}
+		//判断字符串长度
+		function checkLength(str){
+			var tip='';
+			if(str==''){
+				tip='姓名不能为空';	
+			}else{
+				if(countLength(str)>=4 && countLength(str)<=16){
+					tip='名称格式正确';
+				}else{
+					tip='必填，长度为4~16个字符';	
+				}	
+			}
+			return tip;
+		}
+		//验证按钮绑定点击事件
+		$('btn').onclick=function(){
+			var tip=checkLength($('txt').value);
+			$('tip').innerHTML=tip;
+			if(tip=='名称格式正确'){
+				$('tip').style.color='green';
+				$('txt').style.border='2px solid green';
+			}else{
+				$('tip').style.color='red';
+				$('txt').style.border='2px solid red';
+			}
+		}
+		
+		
+	}
+</script>
+<body>
+	<div class="form">
+		<form action="">
+			<label for="txt">名称</label>
+			<input type="text" name="" id="txt">
+			<span id="tip">必填，长度为4~16个字符</span>
+			<input type="button" value="验证" id="btn">
+		</form>
+	</div>
+	
+</body>
+</html>
